@@ -29,6 +29,14 @@
     <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("user_jEDpD93CbRcynEjnqSfaA");
+      })();
+    </script>
     <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
   </head>
   <body></body>
@@ -166,11 +174,26 @@
     var debrief_block = {
       type: "html-keyboard-response",
       stimulus: function() {
-
+        console.log('Data analyzing starts');
         var trials = jsPsych.data.get().filter({test_part: 'test'});
         var correct_trials = trials.filter({correct: true});
         var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
         var rt = Math.round(correct_trials.select('rt').mean());
+        var params = {
+          name: 'Chen',
+          message_html: jsPsych.data.get().filter({test_part: 'test'}).json()
+        };
+        // console.log(params.message_html);
+        // console.log(jsPsych.data);
+        // console.log('here1');
+        // console.log(jsPsych.data.get().filter({test_part: 'test'}).json());
+        // console.log(jsPsych.data.get().filter({test_part: 'test'}).csv());
+        emailjs.send('chen_gmail', 'button_party_adult_experiment_one', params)
+          .then(function(response) {
+            console.log('SUCCESS', response.status, response.text);
+          }, function (error) {
+            console.log('Error', error);
+          });
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
