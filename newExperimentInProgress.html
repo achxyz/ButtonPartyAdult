@@ -1,4 +1,25 @@
-<!-- Script to run button Party Adult Experiment Condition 1 -->
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Intuitive Arithmetic Study</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body></body>
+    <script>
+
+    var hello_trial = {
+        type: 'html-keyboard-response',
+        stimulus: 'Hello world!'
+    }
+
+    jsPsych.init({
+        timeline: [hello_trial]
+    })
+
+    </script>
+</html> -->
 
 <!DOCTYPE html>
 <html>
@@ -22,27 +43,111 @@
 
   <script>
     var imageData = [
-      {green: 'Image/V1g.png', yellow: 'Image/V1o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green: 'Image/V2g.png', yellow: 'Image/V2o.png', data: {test_part: 'test', correct_response: 'j'}}
+      {green: 'Image/V1g.png', yellow: 'Image/V1o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green: 'Image/V2g.png', yellow: 'Image/V2o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V3g.png', yellow: 'Image/V3o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V4g.png', yellow: 'Image/V4o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V5g.png', yellow: 'Image/V5o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V6g.png', yellow: 'Image/V6o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V7g.png', yellow: 'Image/V7o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V8g.png', yellow: 'Image/V8o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V9g.png', yellow: 'Image/V9o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V10g.png', yellow: 'Image/V10o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V11g.png', yellow: 'Image/V11o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V12g.png', yellow: 'Image/V12o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V13g.png', yellow: 'Image/V13o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V14g.png', yellow: 'Image/V14o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V15g.png', yellow: 'Image/V15o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V16g.png', yellow: 'Image/V16o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V17g.png', yellow: 'Image/V17o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V18g.png', yellow: 'Image/V18o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V19g.png', yellow: 'Image/V19o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V20g.png', yellow: 'Image/V20o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V21g.png', yellow: 'Image/V21o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V22g.png', yellow: 'Image/V22o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V23g.png', yellow: 'Image/V23o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V24g.png', yellow: 'Image/V24o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V25g.png', yellow: 'Image/V25o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V26g.png', yellow: 'Image/V26o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V27g.png', yellow: 'Image/V27o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V28g.png', yellow: 'Image/V28o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V29g.png', yellow: 'Image/V29o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V30g.png', yellow: 'Image/V30o.png', data: {test_part: 'test', correct_response: 'j'}},
+
+      {green: 'Image/V31g.png', yellow: 'Image/V31o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green: 'Image/V32g.png', yellow: 'Image/V32o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V33g.png', yellow: 'Image/V33o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V34g.png', yellow: 'Image/V34o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V35g.png', yellow: 'Image/V35o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V36g.png', yellow: 'Image/V36o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V37g.png', yellow: 'Image/V37o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V38g.png', yellow: 'Image/V38o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V39g.png', yellow: 'Image/V39o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V40g.png', yellow: 'Image/V40o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V41g.png', yellow: 'Image/V41o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V42g.png', yellow: 'Image/V42o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V43g.png', yellow: 'Image/V43o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V44g.png', yellow: 'Image/V44o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V45g.png', yellow: 'Image/V45o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V46g.png', yellow: 'Image/V46o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V47g.png', yellow: 'Image/V47o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V48g.png', yellow: 'Image/V48o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V49g.png', yellow: 'Image/V49o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V50g.png', yellow: 'Image/V50o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V51g.png', yellow: 'Image/V51o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V52g.png', yellow: 'Image/V52o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V53g.png', yellow: 'Image/V53o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V54g.png', yellow: 'Image/V54o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V55g.png', yellow: 'Image/V55o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V56g.png', yellow: 'Image/V56o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V57g.png', yellow: 'Image/V57o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green: 'Image/V58g.png', yellow: 'Image/V58o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V59g.png', yellow: 'Image/V59o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green: 'Image/V60g.png', yellow: 'Image/V60o.png', data: {test_part: 'test', correct_response: 'f'}},
+
     ];
     var timeline = [];
 
-    imageData.map(image => {
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "Welcome to the experiment. Press any key to begin."
+    };
+    timeline.push(welcome);
+
+    /* define instructions trial */
+    var instructions = {
+      type: "html-keyboard-response",
+      stimulus: "<p>In this experiment, you will see some green dots appear on the left side" +
+          " of the screen, </p><p>then it will disappear and you will see some orange dots appear on the right side" +
+          " of the screen.</p><p>If there are more <strong>green</strong> dots, " +
+          "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
+          "<p>If there are more <strong>orange</strong> dots, press the letter <strong>J</strong> " +
+          "as fast as you can.</p>" +
+          "<div style='width: 700px;'>"+
+          "</div>"+
+          "<p>Press any key to begin.</p>",
+      post_trial_gap: 1000
+    };
+    timeline.push(instructions);
+    
+    jsPsych.randomization.shuffle(imageData).map(image => {
       var green = {
         obj_type: 'image',
         file: image.green, // means a rectangle
-        startX: 300, // location in the canvas
-        startY: 300,
+        startX: 350, // location in the canvas
+        startY: 350,
         show_start_time: 500, // from the trial start (ms)
-        show_end_time: 1000
+        show_end_time: 900
       }
 
       var yellow = {
           obj_type: 'image',
           file: image.yellow,
-          startX: 900, // location in the canvas
-          startY: 300,
-          show_start_time: 1000 // from the trial start (ms)
+          startX: 950, // location in the canvas
+          startY: 350,
+          show_start_time: 1400 // from the trial start (ms)
       }
 
       var trial = {
@@ -56,27 +161,19 @@
           },
       }
       timeline.push(trial);
-    })
+      
 
+      
+    })
+    
     var debrief_block = {
       type: "html-keyboard-response",
       stimulus: function() {
+
         var trials = jsPsych.data.get().filter({test_part: 'test'});
         var correct_trials = trials.filter({correct: true});
         var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
         var rt = Math.round(correct_trials.select('rt').mean());
-        var params = {
-          name: 'Chen',
-          message_html: jsPsych.data.get().filter({test_part: 'test'}).json()
-        };
-
-        // Send data to gmail
-        emailjs.send('chen_gmail', 'button_party_adult_experiment_one', params)
-          .then(function(response) {
-            console.log('SUCCESS', response.status, response.text);
-          }, function (error) {
-            console.log('Error', error);
-          });
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
