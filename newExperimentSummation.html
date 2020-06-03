@@ -1,0 +1,340 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>Intuitive Arithmetic Study</title>
+        <script src="jspsych-6.1.0/jspsych.js"></script>
+        <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+        <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body></body>
+    <script>
+
+    var hello_trial = {
+        type: 'html-keyboard-response',
+        stimulus: 'Hello world!'
+    }
+
+    jsPsych.init({
+        timeline: [hello_trial]
+    })
+
+    </script>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Intuitive Arithmetic Study</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body></body>
+  <!-- <script>
+
+    /* create timeline */
+    var timeline = [];
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "Welcome to the experiment. Press any key to begin."
+    };
+    timeline.push(welcome);
+
+    /* define instructions trial */
+    var instructions = {
+      type: "html-keyboard-response",
+      stimulus: "<p>In this experiment, you will see some green dots appear on the left side" +
+          "of the screen, then it will disappear and you will see some orange dots appear on the right side" +
+          "of the screen.</p><p>If there are more <strong>green dots</strong>, " +
+          "press the letter F on the keyboard as fast as you can.</p>" +
+          "<p>If there are more <strong>orange dots</strong>, press the letter J " +
+          "as fast as you can.</p>" +
+          "<div style='width: 700px;'>"+
+          "<div style='float: left;'><img src='img/blue.png'></img>" +
+          "<p class='small'><strong>Press the F key</strong></p></div>" +
+          "<div class='float: right;'><img src='img/orange.png'></img>" +
+          "<p class='small'><strong>Press the J key</strong></p></div>" +
+          "</div>"+
+          "<p>Press any key to begin.</p>",
+      post_trial_gap: 2000
+    };
+    timeline.push(instructions);
+
+    /* test trials */
+
+    var test_stimuli = [
+      { stimulus: "F1.png", data: { test_part: 'test', correct_response: 'f' } },
+      { stimulus: "F3.png", data: { test_part: 'test', correct_response: 'j' } }
+    ];
+
+    var fixation = {
+      type: 'html-keyboard-response',
+      stimulus: '<div style="font-size:60px;">+</div>',
+      choices: jsPsych.NO_KEYS,
+      trial_duration: function(){
+        return jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1)[0];
+      },
+      data: {test_part: 'fixation'}
+    }
+
+    var test = {
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      choices: ['f', 'j'],
+      data: jsPsych.timelineVariable('data'),
+      on_finish: function(data){
+        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      },
+    }
+
+    var test_procedure = {
+      timeline: [fixation, test],
+      timeline_variables: test_stimuli,
+      repetitions: 1,
+      randomize_order: true
+    }
+    timeline.push(test_procedure);
+
+    /* define debrief */
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+        "<p>Your average response time was "+rt+"ms.</p>"+
+        "<p>Press any key to complete the experiment. Thank you!</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+  </script> -->
+  <script>
+    var imagePreDataSum = [
+     {Pregreen1:'Image_sum/S1g1.png', Pregreen2:'Image_sum/S1g2.png', Preyellow:'Image_sum/S1o.png', data: {test_part:'test', correct_response:'j'}},
+     {Pregreen1:'Image_sum/S2g1.png', Pregreen2:'Image_sum/S1g2.png', Preyellow:'Image_sum/S2o.png', data: {test_part:'test', correct_response:'f'}}    
+
+   ]
+   var imageDataSum = [
+      {green1: 'Image_sum/S1g1.png', green2: 'Image_sum/S1g2.png', yellow: 'Image_sum/S1o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S2g1.png', green2: 'Image_sum/S2g2.png', yellow: 'Image_sum/S2o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S3g1.png', green2: 'Image_sum/S3g2.png', yellow: 'Image_sum/S3o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S4g1.png', green2: 'Image_sum/S4g2.png', yellow: 'Image_sum/S4o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S5g1.png', green2: 'Image_sum/S5g2.png', yellow: 'Image_sum/S5o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S6g1.png', green2: 'Image_sum/S6g2.png', yellow: 'Image_sum/S6o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S7g1.png', green2: 'Image_sum/S7g2.png', yellow: 'Image_sum/S7o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S8g1.png', green2: 'Image_sum/S8g2.png', yellow: 'Image_sum/S8o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S9g1.png', green2: 'Image_sum/S9g2.png', yellow: 'Image_sum/S9o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S10g1.png', green2: 'Image_sum/S10g2.png', yellow: 'Image_sum/S10o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S11g1.png', green2: 'Image_sum/S11g2.png', yellow: 'Image_sum/S11o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S12g1.png', green2: 'Image_sum/S12g2.png', yellow: 'Image_sum/S12o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S13g1.png', green2: 'Image_sum/S13g2.png', yellow: 'Image_sum/S13o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S14g1.png', green2: 'Image_sum/S14g2.png', yellow: 'Image_sum/S14o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S15g1.png', green2: 'Image_sum/S15g2.png', yellow: 'Image_sum/S15o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S16g1.png', green2: 'Image_sum/S16g2.png', yellow: 'Image_sum/S16o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S17g1.png', green2: 'Image_sum/S17g2.png', yellow: 'Image_sum/S17o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S18g1.png', green2: 'Image_sum/S18g2.png', yellow: 'Image_sum/S18o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S19g1.png', green2: 'Image_sum/S19g2.png', yellow: 'Image_sum/S19o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S20g1.png', green2: 'Image_sum/S20g2.png', yellow: 'Image_sum/S20o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S21g1.png', green2: 'Image_sum/S21g2.png', yellow: 'Image_sum/S21o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S22g1.png', green2: 'Image_sum/S22g2.png', yellow: 'Image_sum/S22o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S23g1.png', green2: 'Image_sum/S23g2.png', yellow: 'Image_sum/S23o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S24g1.png', green2: 'Image_sum/S24g2.png', yellow: 'Image_sum/S24o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S25g1.png', green2: 'Image_sum/S25g2.png', yellow: 'Image_sum/S25o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S26g1.png', green2: 'Image_sum/S26g2.png', yellow: 'Image_sum/S26o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S27g1.png', green2: 'Image_sum/S27g2.png', yellow: 'Image_sum/S27o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S28g1.png', green2: 'Image_sum/S28g2.png', yellow: 'Image_sum/S28o.png', data: {test_part: 'test', correct_response: 'f'}},
+      {green1: 'Image_sum/S29g1.png', green2: 'Image_sum/S29g2.png', yellow: 'Image_sum/S29o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S30g1.png', green2: 'Image_sum/S30g2.png', yellow: 'Image_sum/S30o.png', data: {test_part: 'test', correct_response: 'j'}},
+      
+      {green1: 'Image_sum/S31g1.png', green2: 'Image_sum/S31g2.png', yellow: 'Image_sum/S31o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S32g1.png', green2: 'Image_sum/S32g2.png', yellow: 'Image_sum/S32o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S33g1.png', green2: 'Image_sum/S33g2.png', yellow: 'Image_sum/S33o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S34g1.png', green2: 'Image_sum/S34g2.png', yellow: 'Image_sum/S34o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S35g1.png', green2: 'Image_sum/S35g2.png', yellow: 'Image_sum/S35o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S36g1.png', green2: 'Image_sum/S36g2.png', yellow: 'Image_sum/S36o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S37g1.png', green2: 'Image_sum/S37g2.png', yellow: 'Image_sum/S37o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S38g1.png', green2: 'Image_sum/S38g2.png', yellow: 'Image_sum/S38o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S39g1.png', green2: 'Image_sum/S39g2.png', yellow: 'Image_sum/S39o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S40g1.png', green2: 'Image_sum/S40g2.png', yellow: 'Image_sum/S40o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S41g1.png', green2: 'Image_sum/S41g2.png', yellow: 'Image_sum/S41o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S42g1.png', green2: 'Image_sum/S42g2.png', yellow: 'Image_sum/S42o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S43g1.png', green2: 'Image_sum/S43g2.png', yellow: 'Image_sum/S43o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S44g1.png', green2: 'Image_sum/S44g2.png', yellow: 'Image_sum/S44o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S45g1.png', green2: 'Image_sum/S45g2.png', yellow: 'Image_sum/S45o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S46g1.png', green2: 'Image_sum/S46g2.png', yellow: 'Image_sum/S46o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S47g1.png', green2: 'Image_sum/S47g2.png', yellow: 'Image_sum/S47o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S48g1.png', green2: 'Image_sum/S48g2.png', yellow: 'Image_sum/S48o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S49g1.png', green2: 'Image_sum/S49g2.png', yellow: 'Image_sum/S49o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S50g1.png', green2: 'Image_sum/S50g2.png', yellow: 'Image_sum/S50o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S51g1.png', green2: 'Image_sum/S51g2.png', yellow: 'Image_sum/S51o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S52g1.png', green2: 'Image_sum/S52g2.png', yellow: 'Image_sum/S52o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S53g1.png', green2: 'Image_sum/S53g2.png', yellow: 'Image_sum/S53o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S54g1.png', green2: 'Image_sum/S54g2.png', yellow: 'Image_sum/S54o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S55g1.png', green2: 'Image_sum/S55g2.png', yellow: 'Image_sum/S55o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S56g1.png', green2: 'Image_sum/S56g2.png', yellow: 'Image_sum/S56o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S57g1.png', green2: 'Image_sum/S57g2.png', yellow: 'Image_sum/S57o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      {green1: 'Image_sum/S58g1.png', green2: 'Image_sum/S58g2.png', yellow: 'Image_sum/S58o.png', data: {test_part: 'test', correct_response: 'j'}},
+      {green1: 'Image_sum/S59g1.png', green2: 'Image_sum/S59g2.png', yellow: 'Image_sum/S59o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      {green1: 'Image_sum/S60g1.png', green2: 'Image_sum/S60g2.png', yellow: 'Image_sum/S60o.png', data: {test_part: 'test', correct_response: 'f'}},
+      
+      ];
+   var timeline = [];
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "Welcome to the experiment. Press any key to begin."
+    };
+    timeline.push(welcome);
+
+    var practiceSum = {
+      type: "html-keyboard-response",
+      stimulus: "<p>In the next experiment, you will see <strong>two</strong> piles of green dots sequentially appear on the left side" +
+          " of the screen, </p><p>then ig will disappear and you will see a plie of orange dots appear on the right side" +
+          " of the screen.</p><p>You need to compare the <strong>sum</strong> of the green dots to the orange dots. </p><p>" +
+          "If there are more <strong>green</strong> dots, " +
+          "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
+          "<p>If there are more <strong>orange</strong> dots, press the letter <strong>J</strong> " +
+          "as fast as you can.</p>" +
+          "<div style='width: 700px;'>"+
+          "</div>"+
+          "<p>Press any key to begin.</p>",
+      post_trial_gap: 1000
+    };
+    timeline.push(practiceSum);
+
+    imagePreData.map(image => {
+      var Pregreen1 = {
+        obj_type: 'image',
+        file: image.Pregreen1, 
+        startX: 350, // location in the canvas
+        startY: 350,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 900
+      }
+      var Pregreen2 = {
+        obj_type: 'image',
+        file: image.Pregreen2, 
+        startX: 350, // location in the canvas
+        startY: 350,
+        show_start_time: 1700, // from the trial start (ms)
+        show_end_time: 2100
+      }
+      var Preyellow = {
+          obj_type: 'image',
+          file: image.Preyellow,
+          startX: 950, // location in the canvas
+          startY: 350,
+          show_start_time: 2600 // from the trial start (ms)
+      }
+
+      var Pretrial = {
+          type: 'psychophysics',
+          stimuli: [Pregreen1, Pregreen2, Preyellow],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+      timeline.push(Pretrial);
+    })
+
+    var Predebrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+        "<p>Your average response time was "+rt+"ms.</p>"+
+        "<p>Press any key to start the test session. </p>";
+
+      }
+    };
+    timeline.push(Predebrief_block);
+
+    imageData.map(image => {
+      var green1 = {
+        obj_type: 'image',
+        file: image.green1, 
+        startX: 350, // location in the canvas
+        startY: 350,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 900
+      }
+      var green2 = {
+        obj_type: 'image',
+        file: image.green2, 
+        startX: 350, // location in the canvas
+        startY: 350,
+        show_start_time: 1700, // from the trial start (ms)
+        show_end_time: 2100
+      }
+
+      var yellow = {
+          obj_type: 'image',
+          file: image.yellow,
+          startX: 950, // location in the canvas
+          startY: 350,
+          show_start_time: 2600 // from the trial start (ms)
+      }
+
+      var trial = {
+          type: 'psychophysics',
+          stimuli: [green1, green2, yellow],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+      timeline.push(trial);
+    })
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>Great job! Your are all done.</p>"+
+        "<p>Thank you for particiapting the experiment!</p>"+
+        "<p>Press any key to complete the experiment.</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+    jsPsych.init({
+        timeline: timeline,
+        on_finish: function(){jsPsych.data.displayData();}
+    });
+  </script>
+</html>
