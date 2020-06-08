@@ -7,6 +7,7 @@
     <script src="jspsych-6.1.0/jspsych.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
     <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
@@ -83,10 +84,10 @@
       {green: 'Image/V58g.png', yellow: 'Image/V58o.png', data: {test_part: 'test', correct_response: 'j', image_index: 57}},
       {green: 'Image/V59g.png', yellow: 'Image/V59o.png', data: {test_part: 'test', correct_response: 'j', image_index: 58}},
       {green: 'Image/V60g.png', yellow: 'Image/V60o.png', data: {test_part: 'test', correct_response: 'f', image_index: 59}},
-    
     ];
 
     var timeline = [];
+    var customerEmailAddress = null;
 
    /* define welcome message trial */
    var welcome = {
@@ -94,6 +95,16 @@
       stimulus: "Welcome to the experiment. Press any key to begin."
     };
     timeline.push(welcome);
+    
+    /* Get participate email address */
+    var participateEmailAddress = {
+      type: "survey-text",
+      questions: [
+        {promt: "Please enter your email address", rows: 10, columns: 10}
+      ],
+      on_finish: function(data) {customerEmailAddress = data.responses;}
+    };
+    timeline.push(participateEmailAddress);
 
     /* define instructions trial */
     var instructions = {
@@ -148,7 +159,7 @@
       stimulus: function() {
 
         var params = {
-          name: 'Chen',
+          name: customerEmailAddress,
           message_html: jsPsych.data.get().filter({test_part: 'test'}).json()
         };
 
