@@ -7,6 +7,8 @@
     <script src="jspsych-6.1.0/jspsych.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-video-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
     <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
@@ -28,68 +30,70 @@
    ]
    var imageDataDiff = [
       {green1: 'Image_diff/D1g1.png', green2: 'Image_diff/D1g2.png', yellow: 'Image_diff/D1o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D2g1.png', green2: 'Image_diff/D2g2.png', yellow: 'Image_diff/D2o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D3g1.png', green2: 'Image_diff/D3g2.png', yellow: 'Image_diff/D3o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D4g1.png', green2: 'Image_diff/D4g2.png', yellow: 'Image_diff/D4o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D5g1.png', green2: 'Image_diff/D5g2.png', yellow: 'Image_diff/D5o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D6g1.png', green2: 'Image_diff/D6g2.png', yellow: 'Image_diff/D6o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D7g1.png', green2: 'Image_diff/D7g2.png', yellow: 'Image_diff/D7o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D8g1.png', green2: 'Image_diff/D8g2.png', yellow: 'Image_diff/D8o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D9g1.png', green2: 'Image_diff/D9g2.png', yellow: 'Image_diff/D9o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D10g1.png', green2: 'Image_diff/D10g2.png', yellow: 'Image_diff/D10o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D11g1.png', green2: 'Image_diff/D11g2.png', yellow: 'Image_diff/D11o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D12g1.png', green2: 'Image_diff/D12g2.png', yellow: 'Image_diff/D12o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D13g1.png', green2: 'Image_diff/D13g2.png', yellow: 'Image_diff/D13o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D14g1.png', green2: 'Image_diff/D14g2.png', yellow: 'Image_diff/D14o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D15g1.png', green2: 'Image_diff/D15g2.png', yellow: 'Image_diff/D15o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D16g1.png', green2: 'Image_diff/D16g2.png', yellow: 'Image_diff/D16o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D17g1.png', green2: 'Image_diff/D17g2.png', yellow: 'Image_diff/D17o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D18g1.png', green2: 'Image_diff/D18g2.png', yellow: 'Image_diff/D18o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D19g1.png', green2: 'Image_diff/D19g2.png', yellow: 'Image_diff/D19o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D20g1.png', green2: 'Image_diff/D20g2.png', yellow: 'Image_diff/D20o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D21g1.png', green2: 'Image_diff/D21g2.png', yellow: 'Image_diff/D21o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D22g1.png', green2: 'Image_diff/D22g2.png', yellow: 'Image_diff/D22o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D23g1.png', green2: 'Image_diff/D23g2.png', yellow: 'Image_diff/D23o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D24g1.png', green2: 'Image_diff/D24g2.png', yellow: 'Image_diff/D24o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D25g1.png', green2: 'Image_diff/D25g2.png', yellow: 'Image_diff/D25o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D26g1.png', green2: 'Image_diff/D26g2.png', yellow: 'Image_diff/D26o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D27g1.png', green2: 'Image_diff/D27g2.png', yellow: 'Image_diff/D27o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D28g1.png', green2: 'Image_diff/D28g2.png', yellow: 'Image_diff/D28o.png', data: {test_part: 'test', correct_response: 'f'}},
-      {green1: 'Image_diff/D29g1.png', green2: 'Image_diff/D29g2.png', yellow: 'Image_diff/D29o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D30g1.png', green2: 'Image_diff/D30g2.png', yellow: 'Image_diff/D30o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D2g1.png', green2: 'Image_diff/D2g2.png', yellow: 'Image_diff/D2o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D3g1.png', green2: 'Image_diff/D3g2.png', yellow: 'Image_diff/D3o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D4g1.png', green2: 'Image_diff/D4g2.png', yellow: 'Image_diff/D4o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D5g1.png', green2: 'Image_diff/D5g2.png', yellow: 'Image_diff/D5o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D6g1.png', green2: 'Image_diff/D6g2.png', yellow: 'Image_diff/D6o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D7g1.png', green2: 'Image_diff/D7g2.png', yellow: 'Image_diff/D7o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D8g1.png', green2: 'Image_diff/D8g2.png', yellow: 'Image_diff/D8o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D9g1.png', green2: 'Image_diff/D9g2.png', yellow: 'Image_diff/D9o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D10g1.png', green2: 'Image_diff/D10g2.png', yellow: 'Image_diff/D10o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D11g1.png', green2: 'Image_diff/D11g2.png', yellow: 'Image_diff/D11o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D12g1.png', green2: 'Image_diff/D12g2.png', yellow: 'Image_diff/D12o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D13g1.png', green2: 'Image_diff/D13g2.png', yellow: 'Image_diff/D13o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D14g1.png', green2: 'Image_diff/D14g2.png', yellow: 'Image_diff/D14o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D15g1.png', green2: 'Image_diff/D15g2.png', yellow: 'Image_diff/D15o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D16g1.png', green2: 'Image_diff/D16g2.png', yellow: 'Image_diff/D16o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D17g1.png', green2: 'Image_diff/D17g2.png', yellow: 'Image_diff/D17o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D18g1.png', green2: 'Image_diff/D18g2.png', yellow: 'Image_diff/D18o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D19g1.png', green2: 'Image_diff/D19g2.png', yellow: 'Image_diff/D19o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D20g1.png', green2: 'Image_diff/D20g2.png', yellow: 'Image_diff/D20o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D21g1.png', green2: 'Image_diff/D21g2.png', yellow: 'Image_diff/D21o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D22g1.png', green2: 'Image_diff/D22g2.png', yellow: 'Image_diff/D22o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D23g1.png', green2: 'Image_diff/D23g2.png', yellow: 'Image_diff/D23o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D24g1.png', green2: 'Image_diff/D24g2.png', yellow: 'Image_diff/D24o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D25g1.png', green2: 'Image_diff/D25g2.png', yellow: 'Image_diff/D25o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D26g1.png', green2: 'Image_diff/D26g2.png', yellow: 'Image_diff/D26o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D27g1.png', green2: 'Image_diff/D27g2.png', yellow: 'Image_diff/D27o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D28g1.png', green2: 'Image_diff/D28g2.png', yellow: 'Image_diff/D28o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D29g1.png', green2: 'Image_diff/D29g2.png', yellow: 'Image_diff/D29o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D30g1.png', green2: 'Image_diff/D30g2.png', yellow: 'Image_diff/D30o.png', data: {test_part: 'test', correct_response: 'j'}},
       
-      {green1: 'Image_diff/D31g1.png', green2: 'Image_diff/D31g2.png', yellow: 'Image_diff/D31o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D32g1.png', green2: 'Image_diff/D32g2.png', yellow: 'Image_diff/D32o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D33g1.png', green2: 'Image_diff/D33g2.png', yellow: 'Image_diff/D33o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D34g1.png', green2: 'Image_diff/D34g2.png', yellow: 'Image_diff/D34o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D35g1.png', green2: 'Image_diff/D35g2.png', yellow: 'Image_diff/D35o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D36g1.png', green2: 'Image_diff/D36g2.png', yellow: 'Image_diff/D36o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D37g1.png', green2: 'Image_diff/D37g2.png', yellow: 'Image_diff/D37o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D38g1.png', green2: 'Image_diff/D38g2.png', yellow: 'Image_diff/D38o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D39g1.png', green2: 'Image_diff/D39g2.png', yellow: 'Image_diff/D39o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D40g1.png', green2: 'Image_diff/D40g2.png', yellow: 'Image_diff/D40o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D41g1.png', green2: 'Image_diff/D41g2.png', yellow: 'Image_diff/D41o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D42g1.png', green2: 'Image_diff/D42g2.png', yellow: 'Image_diff/D42o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D43g1.png', green2: 'Image_diff/D43g2.png', yellow: 'Image_diff/D43o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D44g1.png', green2: 'Image_diff/D44g2.png', yellow: 'Image_diff/D44o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D45g1.png', green2: 'Image_diff/D45g2.png', yellow: 'Image_diff/D45o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D46g1.png', green2: 'Image_diff/D46g2.png', yellow: 'Image_diff/D46o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D47g1.png', green2: 'Image_diff/D47g2.png', yellow: 'Image_diff/D47o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D48g1.png', green2: 'Image_diff/D48g2.png', yellow: 'Image_diff/D48o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D49g1.png', green2: 'Image_diff/D49g2.png', yellow: 'Image_diff/D49o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D50g1.png', green2: 'Image_diff/D50g2.png', yellow: 'Image_diff/D50o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D51g1.png', green2: 'Image_diff/D51g2.png', yellow: 'Image_diff/D51o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D52g1.png', green2: 'Image_diff/D52g2.png', yellow: 'Image_diff/D52o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D53g1.png', green2: 'Image_diff/D53g2.png', yellow: 'Image_diff/D53o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D54g1.png', green2: 'Image_diff/D54g2.png', yellow: 'Image_diff/D54o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D55g1.png', green2: 'Image_diff/D55g2.png', yellow: 'Image_diff/D55o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D56g1.png', green2: 'Image_diff/D56g2.png', yellow: 'Image_diff/D56o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D57g1.png', green2: 'Image_diff/D57g2.png', yellow: 'Image_diff/D57o.png', data: {test_part: 'test', correct_response: 'f'}}, 
-      {green1: 'Image_diff/D58g1.png', green2: 'Image_diff/D58g2.png', yellow: 'Image_diff/D58o.png', data: {test_part: 'test', correct_response: 'j'}},
-      {green1: 'Image_diff/D59g1.png', green2: 'Image_diff/D59g2.png', yellow: 'Image_diff/D59o.png', data: {test_part: 'test', correct_response: 'j'}}, 
-      {green1: 'Image_diff/D60g1.png', green2: 'Image_diff/D60g2.png', yellow: 'Image_diff/D60o.png', data: {test_part: 'test', correct_response: 'f'}},
+      // {green1: 'Image_diff/D31g1.png', green2: 'Image_diff/D31g2.png', yellow: 'Image_diff/D31o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D32g1.png', green2: 'Image_diff/D32g2.png', yellow: 'Image_diff/D32o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D33g1.png', green2: 'Image_diff/D33g2.png', yellow: 'Image_diff/D33o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D34g1.png', green2: 'Image_diff/D34g2.png', yellow: 'Image_diff/D34o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D35g1.png', green2: 'Image_diff/D35g2.png', yellow: 'Image_diff/D35o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D36g1.png', green2: 'Image_diff/D36g2.png', yellow: 'Image_diff/D36o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D37g1.png', green2: 'Image_diff/D37g2.png', yellow: 'Image_diff/D37o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D38g1.png', green2: 'Image_diff/D38g2.png', yellow: 'Image_diff/D38o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D39g1.png', green2: 'Image_diff/D39g2.png', yellow: 'Image_diff/D39o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D40g1.png', green2: 'Image_diff/D40g2.png', yellow: 'Image_diff/D40o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D41g1.png', green2: 'Image_diff/D41g2.png', yellow: 'Image_diff/D41o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D42g1.png', green2: 'Image_diff/D42g2.png', yellow: 'Image_diff/D42o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D43g1.png', green2: 'Image_diff/D43g2.png', yellow: 'Image_diff/D43o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D44g1.png', green2: 'Image_diff/D44g2.png', yellow: 'Image_diff/D44o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D45g1.png', green2: 'Image_diff/D45g2.png', yellow: 'Image_diff/D45o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D46g1.png', green2: 'Image_diff/D46g2.png', yellow: 'Image_diff/D46o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D47g1.png', green2: 'Image_diff/D47g2.png', yellow: 'Image_diff/D47o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D48g1.png', green2: 'Image_diff/D48g2.png', yellow: 'Image_diff/D48o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D49g1.png', green2: 'Image_diff/D49g2.png', yellow: 'Image_diff/D49o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D50g1.png', green2: 'Image_diff/D50g2.png', yellow: 'Image_diff/D50o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D51g1.png', green2: 'Image_diff/D51g2.png', yellow: 'Image_diff/D51o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D52g1.png', green2: 'Image_diff/D52g2.png', yellow: 'Image_diff/D52o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D53g1.png', green2: 'Image_diff/D53g2.png', yellow: 'Image_diff/D53o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D54g1.png', green2: 'Image_diff/D54g2.png', yellow: 'Image_diff/D54o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D55g1.png', green2: 'Image_diff/D55g2.png', yellow: 'Image_diff/D55o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D56g1.png', green2: 'Image_diff/D56g2.png', yellow: 'Image_diff/D56o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D57g1.png', green2: 'Image_diff/D57g2.png', yellow: 'Image_diff/D57o.png', data: {test_part: 'test', correct_response: 'f'}}, 
+      // {green1: 'Image_diff/D58g1.png', green2: 'Image_diff/D58g2.png', yellow: 'Image_diff/D58o.png', data: {test_part: 'test', correct_response: 'j'}},
+      // {green1: 'Image_diff/D59g1.png', green2: 'Image_diff/D59g2.png', yellow: 'Image_diff/D59o.png', data: {test_part: 'test', correct_response: 'j'}}, 
+      // {green1: 'Image_diff/D60g1.png', green2: 'Image_diff/D60g2.png', yellow: 'Image_diff/D60o.png', data: {test_part: 'test', correct_response: 'f'}},
       ];
-   var timeline = [];
+
+    var timeline = [];
+      
 
     /* define welcome message trial */
     var welcome = {
@@ -97,6 +101,16 @@
       stimulus: "Welcome to the experiment. Press any key to begin."
     };
     timeline.push(welcome);
+
+    /* Get participate email address */
+    var participateEmailAddress = {
+      type: "survey-text",
+      questions: [
+        {prompt: "Please enter your email address here", rows: 3, columns: 50}
+      ],
+      on_finish: function(data) {customerEmailAddress = data.responses;}
+    };
+    timeline.push(participateEmailAddress);
 
     var practice = {
       type: "html-keyboard-response",
@@ -113,6 +127,32 @@
       post_trial_gap: 1000
     };
     timeline.push(practice);
+
+    var videoTrial = {
+      type: 'video-keyboard-response',
+      sources: ['Image_diff/C1 copy.mp4'],
+      choices: ['f', 'j'],
+      height: 800,
+      //startX: 200,
+      startY: 100
+
+    };
+
+    timeline.push(videoTrial);
+  //   var videoData = [
+  //    {video1:'Image_diff/C1.m4v', data: {test_part:'test', correct_response:'j'}},
+  //  ]
+
+  //     var videotrial = {
+  //         type: 'video-keyboard-response',
+  //         sources: [videoData],
+  //        choices: ['f','j'],
+  //        width: 640,
+  //        on_finish: function(data) {
+  //           data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+  //         },
+  //     }
+  //     timeline.push(videotrial)
 
     imagePreDataDiff.map(image => {
       var Pregreen1 = {

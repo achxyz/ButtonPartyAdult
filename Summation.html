@@ -99,6 +99,18 @@
     };
     timeline.push(welcome);
 
+
+  /* Get participate email address */
+  var participateEmailAddress = {
+      type: "survey-text",
+      questions: [
+        {prompt: "Please enter your email address here", rows: 3, columns: 50}
+      ],
+      on_finish: function(data) {customerEmailAddress = data.responses;}
+    };
+    timeline.push(participateEmailAddress);
+
+
     var practiceSum = {
       type: "html-keyboard-response",
       stimulus: "<p>In the next experiment, you will see <strong>two</strong> piles of green dots sequentially appear on the left side" +
@@ -108,6 +120,7 @@
           "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
           "<p>If there are more <strong>orange</strong> dots, press the letter <strong>J</strong> " +
           "as fast as you can.</p>" +
+          "<p> First, let's <strong>practice</strong>. </p>" +
           "<div style='width: 700px;'>"+
           "</div>"+
           "<p>Press any key to begin.</p>",
@@ -164,7 +177,7 @@
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
-        "<p>Press any key to start the test session. </p>";
+        "<p>Press any key to start the <strong>Test</strong> Session. </p>";
 
       }
     };
