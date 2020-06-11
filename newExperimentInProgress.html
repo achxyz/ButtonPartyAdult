@@ -24,23 +24,108 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My experiment</title>
+    <title>Intuitive Arithmetic Study</title>
     <script src="jspsych-6.1.0/jspsych.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-      (function(){
-          emailjs.init("user_jEDpD93CbRcynEjnqSfaA");
-      })();
-    </script>
     <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
   </head>
   <body></body>
+  <!-- <script>
 
+    /* create timeline */
+    var timeline = [];
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "Welcome to the experiment. Press any key to begin."
+    };
+    timeline.push(welcome);
+
+    /* define instructions trial */
+    var instructions = {
+      type: "html-keyboard-response",
+      stimulus: "<p>In this experiment, you will see some green dots appear on the left side" +
+          "of the screen, then it will disappear and you will see some orange dots appear on the right side" +
+          "of the screen.</p><p>If there are more <strong>green dots</strong>, " +
+          "press the letter F on the keyboard as fast as you can.</p>" +
+          "<p>If there are more <strong>orange dots</strong>, press the letter J " +
+          "as fast as you can.</p>" +
+          "<div style='width: 700px;'>"+
+          "<div style='float: left;'><img src='img/blue.png'></img>" +
+          "<p class='small'><strong>Press the F key</strong></p></div>" +
+          "<div class='float: right;'><img src='img/orange.png'></img>" +
+          "<p class='small'><strong>Press the J key</strong></p></div>" +
+          "</div>"+
+          "<p>Press any key to begin.</p>",
+      post_trial_gap: 2000
+    };
+    timeline.push(instructions);
+
+    /* test trials */
+
+    var test_stimuli = [
+      { stimulus: "F1.png", data: { test_part: 'test', correct_response: 'f' } },
+      { stimulus: "F3.png", data: { test_part: 'test', correct_response: 'j' } }
+    ];
+
+    var fixation = {
+      type: 'html-keyboard-response',
+      stimulus: '<div style="font-size:60px;">+</div>',
+      choices: jsPsych.NO_KEYS,
+      trial_duration: function(){
+        return jsPsych.randomization.sampleWithoutReplacement([250, 500, 750, 1000, 1250, 1500, 1750, 2000], 1)[0];
+      },
+      data: {test_part: 'fixation'}
+    }
+
+    var test = {
+      type: "image-keyboard-response",
+      stimulus: jsPsych.timelineVariable('stimulus'),
+      choices: ['f', 'j'],
+      data: jsPsych.timelineVariable('data'),
+      on_finish: function(data){
+        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+      },
+    }
+
+    var test_procedure = {
+      timeline: [fixation, test],
+      timeline_variables: test_stimuli,
+      repetitions: 1,
+      randomize_order: true
+    }
+    timeline.push(test_procedure);
+
+    /* define debrief */
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
+        "<p>Your average response time was "+rt+"ms.</p>"+
+        "<p>Press any key to complete the experiment. Thank you!</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+    /* start the experiment */
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: function() {
+        jsPsych.data.displayData();
+      }
+    });
+  </script> -->
   <script>
     var imageData = [
       {green: 'Image/V1g.png', yellow: 'Image/V1o.png', data: {test_part: 'test', correct_response: 'j'}}, 
@@ -189,3 +274,36 @@
     });
   </script>
 </html>
+
+
+{green: 'Image/V31g.png', yellow: 'Image/V31o.png', data: {test_part: 'test', correct_response: 'f', image_index: 30}}, 
+      {green: 'Image/V32g.png', yellow: 'Image/V32o.png', data: {test_part: 'test', correct_response: 'j', image_index: 31}},
+      {green: 'Image/V33g.png', yellow: 'Image/V33o.png', data: {test_part: 'test', correct_response: 'f', image_index: 32}},
+      {green: 'Image/V34g.png', yellow: 'Image/V34o.png', data: {test_part: 'test', correct_response: 'j', image_index: 33}},
+      {green: 'Image/V35g.png', yellow: 'Image/V35o.png', data: {test_part: 'test', correct_response: 'f', image_index: 34}},
+      {green: 'Image/V36g.png', yellow: 'Image/V36o.png', data: {test_part: 'test', correct_response: 'j', image_index: 35}},
+      {green: 'Image/V37g.png', yellow: 'Image/V37o.png', data: {test_part: 'test', correct_response: 'f', image_index: 36}},
+      {green: 'Image/V38g.png', yellow: 'Image/V38o.png', data: {test_part: 'test', correct_response: 'j', image_index: 37}},
+      {green: 'Image/V39g.png', yellow: 'Image/V39o.png', data: {test_part: 'test', correct_response: 'f', image_index: 38}},
+      {green: 'Image/V40g.png', yellow: 'Image/V40o.png', data: {test_part: 'test', correct_response: 'j', image_index: 39}},
+      {green: 'Image/V41g.png', yellow: 'Image/V41o.png', data: {test_part: 'test', correct_response: 'f', image_index: 40}},
+      {green: 'Image/V42g.png', yellow: 'Image/V42o.png', data: {test_part: 'test', correct_response: 'j', image_index: 41}},
+      {green: 'Image/V43g.png', yellow: 'Image/V43o.png', data: {test_part: 'test', correct_response: 'f', image_index: 42}},
+      {green: 'Image/V44g.png', yellow: 'Image/V44o.png', data: {test_part: 'test', correct_response: 'j', image_index: 43}},
+      {green: 'Image/V45g.png', yellow: 'Image/V45o.png', data: {test_part: 'test', correct_response: 'f', image_index: 44}},
+      {green: 'Image/V46g.png', yellow: 'Image/V46o.png', data: {test_part: 'test', correct_response: 'j', image_index: 45}},
+      {green: 'Image/V47g.png', yellow: 'Image/V47o.png', data: {test_part: 'test', correct_response: 'f', image_index: 46}},
+      {green: 'Image/V48g.png', yellow: 'Image/V48o.png', data: {test_part: 'test', correct_response: 'j', image_index: 47}},
+      {green: 'Image/V49g.png', yellow: 'Image/V49o.png', data: {test_part: 'test', correct_response: 'f', image_index: 48}},
+      {green: 'Image/V50g.png', yellow: 'Image/V50o.png', data: {test_part: 'test', correct_response: 'j', image_index: 49}},
+      {green: 'Image/V51g.png', yellow: 'Image/V51o.png', data: {test_part: 'test', correct_response: 'f', image_index: 50}},
+      {green: 'Image/V52g.png', yellow: 'Image/V52o.png', data: {test_part: 'test', correct_response: 'j', image_index: 51}},
+      {green: 'Image/V53g.png', yellow: 'Image/V53o.png', data: {test_part: 'test', correct_response: 'j', image_index: 52}},
+      {green: 'Image/V54g.png', yellow: 'Image/V54o.png', data: {test_part: 'test', correct_response: 'j', image_index: 53}},
+      {green: 'Image/V55g.png', yellow: 'Image/V55o.png', data: {test_part: 'test', correct_response: 'f', image_index: 54}},
+      {green: 'Image/V56g.png', yellow: 'Image/V56o.png', data: {test_part: 'test', correct_response: 'j', image_index: 55}},
+      {green: 'Image/V57g.png', yellow: 'Image/V57o.png', data: {test_part: 'test', correct_response: 'f', image_index: 56}},
+      {green: 'Image/V58g.png', yellow: 'Image/V58o.png', data: {test_part: 'test', correct_response: 'j', image_index: 57}},
+      {green: 'Image/V59g.png', yellow: 'Image/V59o.png', data: {test_part: 'test', correct_response: 'j', image_index: 58}},
+      {green: 'Image/V60g.png', yellow: 'Image/V60o.png', data: {test_part: 'test', correct_response: 'f', image_index: 59}},
+    
