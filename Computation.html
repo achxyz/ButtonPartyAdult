@@ -114,12 +114,13 @@
 
     var practice = {
       type: "html-keyboard-response",
-      stimulus: "<p>In the next experiment, you will see <strong>two</strong> piles of green dots sequentially appear on the left side" +
-          " of the screen, </p><p>then it will disappear and you will see a plie of orange dots appear on the right side" +
-          " of the screen.</p><p>You need to compare the <strong>difference</strong> of the two piles of green dots to the orange dots. </p><p>" +
-          "If the <strong>difference of the green</strong> dots is more, " +
+      stimulus: '<p>In the next experiment, you will see <strong>two</strong> piles of <span style="color:green">green</span> dots sequentially appear on the left side' +
+          ' of the screen, </p><p>then it will disappear and you will see a plie of <span style="color:orange">orange</span> dots appear on the right side' +
+          ' of the screen.</p><p>You need to compare the <strong>difference</strong> of' +
+          ' the two piles of <span style="color:green">green</span> dots to the <span style="color:orange">orange</span> dots. </p><p>' +
+          'If the <strong>difference of the <span style="color:green">green</span></strong> dots is more, ' +
           "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
-          "<p>If the <strong>orange</strong> dots is more, press the letter <strong>J</strong> " +
+          '<p>If the <strong><span style="color:orange">orange</span></strong> dots is more, press the letter <strong>J</strong> ' +
           "as fast as you can.</p>" +
           "<div style='width: 700px;'>"+
           "</div>"+
@@ -248,7 +249,7 @@
 
     jsPsych.init({
         timeline: timeline,
-        on_finish: function(){jsPsych.data.displayData();}
+        //on_finish: function(){jsPsych.data.displayData();}
     });
   </script>
 </html>
