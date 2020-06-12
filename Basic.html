@@ -109,12 +109,13 @@
     /* define instructions trial */
     var instructions = {
       type: "html-keyboard-response",
-      stimulus: "<p>In this experiment, you will see some green dots appear on the left side" +
-          " of the screen, </p><p>then it will disappear and you will see some orange dots appear on the right side" +
-          " of the screen.</p><p>If there are more <strong>green</strong> dots, " +
-          "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
-          "<p>If there are more <strong>orange</strong> dots, press the letter <strong>J</strong> " +
+      stimulus: '<p>In this experiment, you will see some <span style="color:green">green</span> dots appear on the left side' +
+          ' of the screen, </p><p>then it will disappear and you will see some <span style="color:orange">orange</span> dots appear on the right side' +
+          ' of the screen.</p><p>If there are more <strong><span style="color:green">green</span></strong> dots, ' +
+          'press the letter <strong>F</strong> on the keyboard as fast as you can.</p>' +
+          '<p>If there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> ' +
           "as fast as you can.</p>" +
+          "On each trial, a cross sign will first appear on the screen." +
           "<div style='width: 700px;'>"+
           "</div>"+
           "<p>Press any key to begin.</p>",
@@ -136,7 +137,7 @@
       var yellow = {
           obj_type: 'image',
           file: image.yellow,
-          startX: 950, // location in the canvas
+          startX: 900, // location in the canvas
           startY: 350,
           show_start_time: 1400 // from the trial start (ms)
       }
@@ -173,7 +174,7 @@
       stimulus: function() {
 
         var params = {
-          name: customerEmailAddress,
+          name: ["Basic", customerEmailAddress],
           message_html: jsPsych.data.get().filter({test_part: 'test'}).json()
         };
 
@@ -195,7 +196,7 @@
 
     jsPsych.init({
         timeline: timeline,
-        on_finish: function(){jsPsych.data.displayData();}
+        //on_finish: function(){jsPsych.data.displayData();}
     });
   </script>
 </html>
