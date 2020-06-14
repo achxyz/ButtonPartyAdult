@@ -135,24 +135,24 @@
       var Pregreen1 = {
         obj_type: 'image',
         file: image.Pregreen1, 
-        startX: 350, // location in the canvas
-        startY: 350,
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
         show_start_time: 500, // from the trial start (ms)
         show_end_time: 900
       }
       var Pregreen2 = {
         obj_type: 'image',
         file: image.Pregreen2, 
-        startX: 350, // location in the canvas
-        startY: 350,
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
         show_start_time: 1700, // from the trial start (ms)
         show_end_time: 2100
       }
       var Preyellow = {
           obj_type: 'image',
           file: image.Preyellow,
-          startX: 950, // location in the canvas
-          startY: 350,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
           show_start_time: 2600 // from the trial start (ms)
       }
 
@@ -162,6 +162,7 @@
           choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
           background_color: '#FFFFFF', // The HEX color means green.
           data: image.data,
+          response_start_time: 2601,
           on_finish: function(data) {
             data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
           },
@@ -190,16 +191,16 @@
       var green1 = {
         obj_type: 'image',
         file: image.green1, 
-        startX: 350, // location in the canvas
-        startY: 350,
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
         show_start_time: 500, // from the trial start (ms)
         show_end_time: 900
       }
       var green2 = {
         obj_type: 'image',
         file: image.green2, 
-        startX: 350, // location in the canvas
-        startY: 350,
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
         show_start_time: 1700, // from the trial start (ms)
         show_end_time: 2100
       }
@@ -207,8 +208,8 @@
       var yellow = {
           obj_type: 'image',
           file: image.yellow,
-          startX: 950, // location in the canvas
-          startY: 350,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
           show_start_time: 2600 // from the trial start (ms)
       }
 
@@ -218,6 +219,7 @@
           choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
           background_color: '#FFFFFF', // The HEX color means green.
           data: image.data,
+          response_start_time: 2601,
           on_finish: function(data) {
             data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
           },
