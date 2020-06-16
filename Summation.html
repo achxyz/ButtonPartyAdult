@@ -24,9 +24,10 @@
 
   <script>
        var imagePreDataSum = [
-     {Pregreen1:'Image_sum/S1g1.png', Pregreen2:'Image_sum/S1g2.png', Preyellow:'Image_sum/S1o.png', data: {test_part:'test', correct_response:'j', image_index: 98}},
-     {Pregreen1:'Image_sum/S2g1.png', Pregreen2:'Image_sum/S1g2.png', Preyellow:'Image_sum/S2o.png', data: {test_part:'test', correct_response:'f', image_index: 99}}    
-
+     {Pregreen1:'Image_sum/Pre1g1.png', Pregreen2:'Image_sum/Pre1g2.png', Preyellow:'Image_sum/Pre1o.png', data: {test_part:'test', correct_response:'j', image_index: 96}},
+     {Pregreen1:'Image_sum/Pre2g1.png', Pregreen2:'Image_sum/Pre2g2.png', Preyellow:'Image_sum/Pre2o.png', data: {test_part:'test', correct_response:'f', image_index: 97}},    
+     {Pregreen1:'Image_sum/Pre3g1.png', Pregreen2:'Image_sum/Pre3g2.png', Preyellow:'Image_sum/Pre3o.png', data: {test_part:'test', correct_response:'j', image_index: 98}},
+     {Pregreen1:'Image_sum/Pre4g1.png', Pregreen2:'Image_sum/Pre4g2.png', Preyellow:'Image_sum/Pre4o.png', data: {test_part:'test', correct_response:'f', image_index: 99}},
    ]
    var imageDataSum = [
       {green1: 'Image_sum/S1g1.png', green2: 'Image_sum/S1g2.png', yellow: 'Image_sum/S1o.png', data: {test_part: 'test', correct_response: 'j', image_index: 0}}, 
@@ -102,27 +103,16 @@
     };
     timeline.push(welcome);
 
-
-  /* Get participate email address */
-  var participateEmailAddress = {
-      type: "survey-text",
-      questions: [
-        {prompt: "Please enter your email address here", rows: 3, columns: 50}
-      ],
-      on_finish: function(data) {customerEmailAddress = data.responses;}
-    };
-    timeline.push(participateEmailAddress);
-
-
     var practiceSum = {
       type: "html-keyboard-response",
       stimulus: '<p>In the next experiment, you will see <strong>two</strong> piles of <span style="color:green">green</span> dots sequentially appear on the left side' +
-          ' of the screen, </p><p>then it will disappear and you will see a plie of <span style="color:orange">orange</span> dots appear on the right side' +
-          ' of the screen.</p><p>You need to compare the <strong>sum</strong> of the <span style="color:green">green</span> dots to the <span style="color:orange">orange</span> dots. </p><p>' +
+          ' of the screen, </p><p>then they will disappear and you will see a plie of <span style="color:orange">orange</span> dots appear on the right side' +
+          ' of the screen.</p><p>You need to compare the <strong>SUM</strong> of the <span style="color:green">green</span> dots to the <span style="color:orange">orange</span> dots. </p><p>' +
           'If there are more <strong><span style="color:green">green</span></strong> dots, ' +
           "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
           '<p>If there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> ' +
           "as fast as you can.</p>" +
+          "Once you press a key, it will automatically proceed to the next trial." +
           "<p> First, let's <strong>practice</strong>. </p>" +
           "<div style='width: 700px;'>"+
           "</div>"+
@@ -138,22 +128,22 @@
         startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
         startY: parseInt(window.innerHeight) * 0.5,
         show_start_time: 500, // from the trial start (ms)
-        show_end_time: 900
+        show_end_time: 1500
       }
       var Pregreen2 = {
         obj_type: 'image',
         file: image.Pregreen2, 
         startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
         startY: parseInt(window.innerHeight) * 0.5,
-        show_start_time: 1700, // from the trial start (ms)
-        show_end_time: 2100
+        show_start_time: 2300, // from the trial start (ms)
+        show_end_time: 3300
       }
       var Preyellow = {
           obj_type: 'image',
           file: image.Preyellow,
           startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
           startY: parseInt(window.innerHeight) * 0.5,
-          show_start_time: 2600 // from the trial start (ms)
+          show_start_time: 4300 // from the trial start (ms)
       }
 
       var Pretrial = {
@@ -162,7 +152,7 @@
           choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
           background_color: '#FFFFFF', // The HEX color means green.
           data: image.data,
-          response_start_time: 2601,
+          response_start_time: 4301,
           on_finish: function(data) {
             data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
           },
@@ -181,7 +171,11 @@
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
-        "<p>Press any key to start the <strong>Test</strong> Session. </p>";
+        'Again, if the <strong>SUM</strong> of the <strong><span style="color:green">green</span></strong> dots are more, ' +
+          "press the letter <strong>F</strong> as fast as you can.</p>" +
+          '<p>If the <strong><span style="color:orange">orange</span></strong> dots are more, press the letter <strong>J</strong> ' +
+          "as fast as you can.</p>" +
+          "<p>Press any key to start the <strong>Test</strong> Session. </p>" ;
 
       }
     };
@@ -226,6 +220,16 @@
       }
       timeline.push(trial);
     })
+
+      /* Get participate email address */
+  var participateEmailAddress = {
+      type: "survey-text",
+      questions: [
+        {prompt: "Please enter your email address here", rows: 3, columns: 50}
+      ],
+      on_finish: function(data) {customerEmailAddress = data.responses;}
+    };
+    timeline.push(participateEmailAddress);
 
     var debrief_block = {
       type: "html-keyboard-response",
