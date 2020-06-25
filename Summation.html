@@ -9,6 +9,7 @@
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-video-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
     <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
@@ -102,6 +103,11 @@
       stimulus: "Welcome to the experiment. Press any key to begin."
     };
     timeline.push(welcome);
+
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
 
     var practiceSum = {
       type: "html-keyboard-response",
@@ -230,6 +236,11 @@
       on_finish: function(data) {customerEmailAddress = data.responses;}
     };
     timeline.push(participateEmailAddress);
+
+ timeline.push({
+  type: 'fullscreen',
+  fullscreen_mode: false
+});
 
     var debrief_block = {
       type: "html-keyboard-response",

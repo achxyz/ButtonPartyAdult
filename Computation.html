@@ -9,6 +9,7 @@
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-video-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
     <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
@@ -103,13 +104,18 @@
     };
     timeline.push(welcome);
 
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+
     var practice = {
       type: "html-keyboard-response",
       stimulus: '<p>In the next experiment, you will see <strong>two</strong> piles of <span style="color:green">green</span> dots sequentially appear on the left side' +
           ' of the screen, </p><p>then they will disappear and you will see a plie of <span style="color:orange">orange</span> dots appear on the right side' +
           ' of the screen.</p><p>You need to compare the <strong>DIFFERENCE</strong> of' +
           ' the two piles of <span style="color:green">green</span> dots to the <span style="color:orange">orange</span> dots. </p><p>' +
-          'If the <strong>DIFFERENCE</strong> of the <span style="color:green">green</span> dots are more, ' +
+          'If the <strong>DIFFERENCE</strong> of the <span style="color:green">green</span> dots is more, ' +
           "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
           '<p>If the <strong><span style="color:orange">orange</span></strong> dots are more, press the letter <strong>J</strong> ' +
           "as fast as you can.</p>" +
@@ -172,7 +178,7 @@
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
-        'Again, if the <strong>DIFFERENCE</strong> of the two <span style="color:green">green</span> piles are more, ' +
+        'Again, if the <strong>DIFFERENCE</strong> of the two <span style="color:green">green</span> piles is more, ' +
           "press the letter <strong>F</strong> as fast as you can.</p>" +
           '<p>If the <strong><span style="color:orange">orange</span></strong> dots are more, press the letter <strong>J</strong> ' +
           "as fast as you can.</p>" +
@@ -231,6 +237,11 @@
       on_finish: function(data) {customerEmailAddress = data.responses;}
     };
     timeline.push(participateEmailAddress);
+
+ timeline.push({
+  type: 'fullscreen',
+  fullscreen_mode: false
+});
 
     var debrief_block = {
       type: "html-keyboard-response",
