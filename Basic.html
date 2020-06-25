@@ -8,6 +8,7 @@
     <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
     <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
@@ -103,6 +104,11 @@
     };
     timeline.push(welcome);
 
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+
     /* define instructions trial */
     var instructions = {
       type: "html-keyboard-response",
@@ -114,7 +120,7 @@
           "as fast as you can.</p>" +
           "Once you press a key, it will automatically proceed to the next trial." +
           "<p> Before each trial starts, you will see a <strong>'+'</strong> sign in the center of the screen.</p>" +
-          "<p> Please focuse on the <strong>'+'</strong> when it appears." +
+          "<p> Please focus on the <strong>'+'</strong> when it appears." +
           "<p> Let's <strong>practice</strong> first. </p>" +
           "<div style='width: 700px;'>"+
           "</div>"+
@@ -242,6 +248,11 @@
       on_finish: function(data) {customerEmailAddress = data.responses;}
     };
     timeline.push(participateEmailAddress);
+
+timeline.push({
+  type: 'fullscreen',
+  fullscreen_mode: false
+});
 
     var debrief_block = {
       type: "html-keyboard-response",
