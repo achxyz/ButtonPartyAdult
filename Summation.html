@@ -111,18 +111,27 @@
 
     var practiceSum = {
       type: "html-keyboard-response",
-      stimulus: '<p>In the next experiment, you will see <strong>two</strong> piles of <span style="color:green">green</span> dots sequentially appear on the left side' +
-          ' of the screen, </p><p>then they will disappear and you will see a plie of <span style="color:orange">orange</span> dots appear on the right side' +
-          ' of the screen.</p><p>You need to compare the <strong>SUM</strong> of the <span style="color:green">green</span> dots to the <span style="color:orange">orange</span> dots. </p><p>' +
-          'If there are more <strong><span style="color:green">green</span></strong> dots, ' +
-          "press the letter <strong>F</strong> on the keyboard as fast as you can.</p>" +
-          '<p>If there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> ' +
-          "as fast as you can.</p>" +
-          "Once you press a key, it will automatically proceed to the next trial." +
-          "<p> First, let's <strong>practice</strong>. </p>" +
-          "<div style='width: 700px;'>"+
-          "</div>"+
-          "<p>Press any key to begin.</p>",
+      stimulus: '<p><strong>PLEASE READ THE INSTRUCTIONS BEFORE PROCEEDING</strong></p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>First, on the left side of the screen, you will see two sets of <span style="color:green">green</span> dots appear briefly one at a time. </p>'+
+      '<p>Then, on the right, you will see a set of <span style="color:orange">orange</span> dots appear briefly.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>You need to determine which is more, the <em>total number</em> of the green dots or the orange dots.</p>" +
+      '<p>If you think there are more <span style="color:green">green</span> dots, press the letter <strong>F</strong> on the keyboard.</p>' +
+      '<p>If you think there are more <span style="color:orange">orange</span> dots, press the letter <strong>J</strong>.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>Please respond as quickly and as accurately as you can. You should not try to count the dots. </p>' +
+      '<p>Rather, just <strong>estimate</strong> as best as you can.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>Once you press a key, you will automatically proceed to the next trial.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>First, let's practice.</p>",
+      
       post_trial_gap: 1000
     };
     timeline.push(practiceSum);
@@ -177,11 +186,16 @@
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
-        'Again, if the <strong>SUM</strong> of the <strong><span style="color:green">green</span></strong> dots are more, ' +
-          "press the letter <strong>F</strong> as fast as you can.</p>" +
-          '<p>If the <strong><span style="color:orange">orange</span></strong> dots are more, press the letter <strong>J</strong> ' +
-          "as fast as you can.</p>" +
-          "<p>Press any key to start the <strong>Test</strong> Session. </p>" ;
+        '<p>OK, now we are going to start.</p>' +
+        '<p>Again, if you think the <em>total number</em> of the green dots is more, press the letter <strong>F</strong> as fast as you can.</p>' +
+        '<p>If you think the <strong><span style="color:orange">orange</span></strong> dots are more, press the letter <strong>J</strong> as fast as you can.</p>' +
+        '<p>Once you respond, the next trial will start automatically, so be sure to pay close attention.</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        'This part of the study will take about 5-7 minutes.</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>When you are ready to start, press any key.</p>';
 
       }
     };

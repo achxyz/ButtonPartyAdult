@@ -112,19 +112,30 @@
     /* define instructions trial */
     var instructions = {
       type: "html-keyboard-response",
-      stimulus: '<p>In this experiment, you will see some <span style="color:green">green</span> dots appear on the left side' +
-          ' of the screen, </p><p>then they will disappear and you will see some <span style="color:orange">orange</span> dots appear on the right side' +
-          ' of the screen.</p><p>If there are more <strong><span style="color:green">green</span></strong> dots, ' +
-          'press the letter <strong>F</strong> on the keyboard as fast as you can.</p>' +
-          '<p>If there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> ' +
-          "as fast as you can.</p>" +
-          "Once you press a key, it will automatically proceed to the next trial." +
-          "<p> Before each trial starts, you will see a <strong>'+'</strong> sign in the center of the screen.</p>" +
-          "<p> Please focus on the <strong>'+'</strong> when it appears." +
-          "<p> Let's <strong>practice</strong> first. </p>" +
-          "<div style='width: 700px;'>"+
-          "</div>"+
-          "<p>Press any key to begin.</p>",
+      stimulus: '<p><strong>PLEASE READ THE INSTRUCTIONS BEFORE PROCEEDING</strong></p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>Before each trial starts, you will see a '+' sign in the center of the screen.</p>" +
+      "<p>Please focus on the '+' only when it appears.</p>" +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>You will then see some <span style="color:green">green</span> dots appear briefly on the left side of the screen, </p>'+
+      '<p>and then you will see some <span style="color:orange">orange</span> dots appear briefly on the right side of the screen.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>You need to determine which side has more dots.</p>" +
+      '<p>If you think there are more <span style="color:green">green</span> dots, press the letter <strong>F</strong> on the keyboard.</p>' +
+      '<p>If you think there are more <span style="color:orange">orange</span> dots, press the letter <strong>J</strong>.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>Please respond as quickly and as accurately as you can. You should not try to count the dots. </p>' +
+      '<p>Rather, just <strong>estimate</strong> as best as you can.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>Once you press a key, you will automatically proceed to the next trial.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>Let's practice first.</p>",
       post_trial_gap: 1000
     };
     timeline.push(instructions);
@@ -184,12 +195,16 @@
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
-        '<p>Again, if there are more <strong><span style="color:green">green</span></strong> dots, ' +
-          'press the letter <strong>F</strong> as fast as you can.</p>' +
-          '<p>If there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> ' +
-          "as fast as you can.</p>" +
-          "<p>Press any key to start the <strong>Test</strong> Session. </p>" ;
-
+        '<p>OK, now we are going to start.</p>' +
+        '<p>Again, if you think there are more <strong><span style="color:green">green</span></strong> dots, press the letter <strong>F</strong> as fast as you can.</p>' +
+        '<p>If you think there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> as fast as you can.</p>' +
+        '<p>Once you respond, the next trial will start automatically, so be sure to pay close attention.</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        'This part of the study will take about 3-5 minutes.</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>When you are ready to start, press any key.</p>';
       }
     };
     timeline.push(Predebrief_block);
