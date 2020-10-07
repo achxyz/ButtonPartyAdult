@@ -258,7 +258,9 @@
     var participateEmailAddress = {
       type: "survey-text",
       questions: [
-        {prompt: "Please enter your email address here", rows: 3, columns: 50}
+        {prompt: "<p>Please enter your email address here.</p>" +
+        "<p>For Psych101 class students to seek for research credit,</p>" +
+        "<p>please instead enter your Initials and today's date (e.g., LG 09/07/2020) below.</p>", rows: 3, columns: 50}
       ],
       on_finish: function(data) {customerEmailAddress = data.responses;}
     };
