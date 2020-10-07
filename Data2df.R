@@ -7,7 +7,7 @@ library(dplyr)
 
 
 # Give the input file name to the function.
-result <- fromJSON(file = "~/Dropbox/DMLabb/Button Party_old/Data/Version2_twolocations/37PK_Diff2.json")
+result <- fromJSON(file = "~/Dropbox/DMLabb/Button Party_old/Data/Online/05SS_Diff.json")
 
 my_df <- reduce(result, bind_rows)
 
