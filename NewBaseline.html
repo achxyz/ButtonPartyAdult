@@ -120,11 +120,14 @@
       "<p>Please focus on the '+' only when it appears.</p>" +
       "<div style = 'width: 700px;'>" +
       "</div>" +
-      '<p>You will then see some <span style="color:green">green</span> dots appear briefly on the left side of the screen, </p>'+
-      '<p>and then you will see some <span style="color:orange">orange</span> dots appear briefly on the right side of the screen.</p>' +
+      '<p>First, on the left side of the screen, you will see two sets of <span style="color:green">green</span> dots appear briefly one at a time.</p>'+
+      '<p>on the <strong>lower</strong> then on the <strong>upper</strong> part of the screen. </p>'+
+      '<p>Then, you will see a <span style="color:green">question mark</span> on the left side and a set of <span style="color:orange">orange</span> dots on the right side of the screen.</p>'+
       "<div style = 'width: 700px;'>" +
       "</div>" +
       "<p>You need to determine which side has more dots.</p>" +
+      "<p>You will only compare <strong>one</strong> set of green dots to the orange dots, and the <strong>location of the question mark</strong> indicates </p>"+
+      "<p>which set of green dots you will compare with.</p>"+
       '<p>If you think there are more <span style="color:green">green</span> dots, press the letter <strong>F</strong> on the keyboard.</p>' +
       '<p>If you think there are more <span style="color:orange">orange</span> dots, press the letter <strong>J</strong>.</p>' +
       "<div style = 'width: 700px;'>" +
@@ -140,6 +143,8 @@
       post_trial_gap: 1000
     };
     timeline.push(instructions);
+
+    var preTestCollection = [];
 
     imagePreData.map(image => {
       var Pregreen1 = {
@@ -158,20 +163,23 @@
         show_start_time: 2300, // from the trial start (ms)
         show_end_time: 3300
       }
-      var Preyellow = {
-          obj_type: 'image',
-          file: image.Preyellow,
-          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
-          startY: parseInt(window.innerHeight) * 0.5,
-          show_start_time: 4300 // from the trial start (ms)
-      }
       var mark = {
           obj_type: 'image',
           file: image.mark,
           startX: image.markStartX, // location in the canvas
           startY: image.markStartY,
-          show_start_time: 4300 // from the trial start (ms)
+          show_start_time: 4300, // from the trial start (ms)
+          show_end_time: 5300
       }
+      var Preyellow = {
+          obj_type: 'image',
+          file: image.Preyellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 6300, // from the trial start (ms)
+          show_end_time: 7300
+      }
+
 
       var Pretrial = {
           type: 'psychophysics',
@@ -196,34 +204,55 @@
         timeline: [fixation, Pretrial],
         timeline_variables: image
       }
-      timeline.push(Pretest_procedure);
-    })
+      // timeline.push(Pretest_procedure);
+      preTestCollection.push(Pretest_procedure);
+    });
 
     var Predebrief_block = {
       type: "html-keyboard-response",
       stimulus: function() {
-
-        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        debugger;
+        var trials = jsPsych.data.get().filter({test_part: 'test'}).last();
         var correct_trials = trials.filter({correct: true});
         var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
         var rt = Math.round(correct_trials.select('rt').mean());
 
         return "<p>You responded correctly on "+accuracy+"% of the trials.</p>"+
         "<p>Your average response time was "+rt+"ms.</p>"+
-        '<p>OK, now we are going to start.</p>' +
-        '<p>Again, if you think there are more <strong><span style="color:green">green</span></strong> dots, press the letter <strong>F</strong> as fast as you can.</p>' +
+        "<p>If you want to <strong>practice again</strong>, press <strong>R</strong>,</p>"+ 
+        "<p>if you want to <strong>continue</strong>, press <strong>any other key</strong>.</p>";
+      }
+    }
+
+    preTestCollection.push(Predebrief_block);
+
+    var loop_node = {
+        timeline: preTestCollection,
+        loop_function: function(data){
+        if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('r') == data.values()[2].key_press){
+          return true;
+        } else {
+          return false;
+          }
+        }
+      };
+    timeline.push(loop_node);
+  
+    var intro = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>OK, now we are going to start!</p>' +
+        '<p>Again, if you think there are more <strong><span style="color:green">green</span></strong> dots <strong>on the location of question mark</strong>, press the letter <strong>F</strong> as fast as you can.</p>' +
         '<p>If you think there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> as fast as you can.</p>' +
         '<p>Once you respond, the next trial will start automatically, so be sure to pay close attention.</p>' +
         "<div style = 'width: 700px;'>" +
         "</div>" +
-        'This part of the study will take about 3-5 minutes.</p>' +
+        'This part of the study will take about 5 minutes.</p>' +
         "<div style = 'width: 700px;'>" +
         "</div>" +
-        '<p>When you are ready to start, press any key.</p>';
+        '<p>When you are ready to start, press any key.</p>',
       }
-    };
-    timeline.push(Predebrief_block);
-  
+    timeline.push(intro);
+
     jsPsych.randomization.shuffle(imageDataBasic).map(image => {
       var green1 = {
         obj_type: 'image',
@@ -241,21 +270,23 @@
         show_start_time: 1700, // from the trial start (ms)
         show_end_time: 2100
       }
-
-      var yellow = {
-          obj_type: 'image',
-          file: image.yellow,
-          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
-          startY: parseInt(window.innerHeight) * 0.5,
-          show_start_time: 2600 // from the trial start (ms)
-      }
       var mark = {
           obj_type: 'image',
           file: image.mark,
           startX: image.markStartX, // 
           startY: image.markStartY,
-          show_start_time: 2600 // from the trial start (ms)
+          show_start_time: 2600, // from the trial start (ms)
+          show_end_time: 3000
       }
+      var yellow = {
+          obj_type: 'image',
+          file: image.yellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 3500, // from the trial start (ms)
+          show_end_time: 3900
+      }
+
       var trial = {
           type: 'psychophysics',
           stimuli: [green1, green2, yellow, mark],
@@ -295,10 +326,10 @@
     };
     timeline.push(participateEmailAddress);
 
-timeline.push({
-  type: 'fullscreen',
-  fullscreen_mode: false
-});
+    timeline.push({
+      type: 'fullscreen',
+      fullscreen_mode: false
+    });
 
     var debrief_block = {
       type: "html-keyboard-response",
