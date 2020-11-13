@@ -117,23 +117,31 @@
       "<div style = 'width: 700px;'>" +
       "</div>" +
       "<p>Before each trial starts, you will see a '+' sign in the center of the screen.</p>" +
-      "<p>Please focus on the '+' only when it appears.</p>" +
+      "<p>Please focus on the '+' when it appears.</p>" +
       "<div style = 'width: 700px;'>" +
       "</div>" +
-      '<p>First, on the left side of the screen, you will see two sets of <span style="color:green">green</span> dots appear briefly one at a time.</p>'+
-      '<p>on the <strong>lower</strong> then on the <strong>upper</strong> part of the screen. </p>'+
-      '<p>Then, you will see a <span style="color:green">question mark</span> on the left side and a set of <span style="color:orange">orange</span> dots on the right side of the screen.</p>'+
+      '<p>In this task, you will compare a set of <strong><span style="color:green">green</span></strong> dots with a set of <strong><span style="color:orange">orange</span></strong> dots to determine which has more dots.</p>'+
+      '<p>The sets will appear briefly, so you will not have time to count them.</p>'+
+      '<p>Instead, you should give your best guess about which set is more.</p>'+
       "<div style = 'width: 700px;'>" +
       "</div>" +
-      "<p>You need to determine which side has more dots.</p>" +
-      "<p>You will only compare <strong>one</strong> set of green dots to the orange dots, and the <strong>location of the question mark</strong> indicates </p>"+
-      "<p>which set of green dots you will compare with.</p>"+
+      "<p>On each trial, you will first see two sets of green dots appear briefly on the left, one at a time.</p>" +
+      "<p>One of the sets of green dots will appear at the top of the screen, and one at the bottom.</p>"+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>After the green dots disappear, a star will appear either on the top left or bottom left of the screen. </p>"+
+      "<p>Then, a set of orange dots will appear briefly on the right side of the screen.</p>"+
+      "<p>Your task is to <strong>compare the set of green dots indicated by the star</strong> (the set that appeared at the top left </p>"+
+      "<p>or the set that appeared at the bottom left) <strong>to the set of orange dots</strong>.</p>"+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
       '<p>If you think there are more <span style="color:green">green</span> dots, press the letter <strong>F</strong> on the keyboard.</p>' +
       '<p>If you think there are more <span style="color:orange">orange</span> dots, press the letter <strong>J</strong>.</p>' +
       "<div style = 'width: 700px;'>" +
       "</div>" +
-      '<p>Please respond as quickly and as accurately as you can. You should not try to count the dots. </p>' +
-      '<p>Rather, just <strong>estimate</strong> as best as you can.</p>' +
+      '<p>Note the green and orange dots will only appear <strong>briefly</strong>, be sure to pay attention when the dots appear on the screen.</p>' +
+      '<p>Please respond as quickly and as accurately as you can. You should not try to count the dots.</p>' +
+      '<p>Rather, just estimate as best as you can.</p>'+
       "<div style = 'width: 700px;'>" +
       "</div>" +
       '<p>Once you press a key, you will automatically proceed to the next trial.</p>' +
@@ -211,8 +219,8 @@
     var Predebrief_block = {
       type: "html-keyboard-response",
       stimulus: function() {
-        debugger;
-        var trials = jsPsych.data.get().filter({test_part: 'test'}).last();
+        // The reason to get last 4 trials was because there are 4 testing trials in practice round
+        var trials = jsPsych.data.get().filter({test_part: 'test'}).last(4);
         var correct_trials = trials.filter({correct: true});
         var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
         var rt = Math.round(correct_trials.select('rt').mean());
@@ -229,10 +237,11 @@
     var loop_node = {
         timeline: preTestCollection,
         loop_function: function(data){
-        if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('r') == data.values()[2].key_press){
-          return true;
-        } else {
-          return false;
+          // debugger;
+          if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('r') == data.values()[data.values().length - 1].key_press){
+            return true;
+          } else {
+            return false;
           }
         }
       };
@@ -241,7 +250,7 @@
     var intro = {
         type: 'html-keyboard-response',
         stimulus: '<p>OK, now we are going to start!</p>' +
-        '<p>Again, if you think there are more <strong><span style="color:green">green</span></strong> dots <strong>on the location of question mark</strong>, press the letter <strong>F</strong> as fast as you can.</p>' +
+        '<p>Again, if you think there are more <strong><span style="color:green">green</span></strong> dots <strong>at the location of the star</strong>, press the letter <strong>F</strong> as fast as you can.</p>' +
         '<p>If you think there are more <strong><span style="color:orange">orange</span></strong> dots, press the letter <strong>J</strong> as fast as you can.</p>' +
         '<p>Once you respond, the next trial will start automatically, so be sure to pay close attention.</p>' +
         "<div style = 'width: 700px;'>" +
