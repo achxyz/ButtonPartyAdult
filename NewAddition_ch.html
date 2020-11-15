@@ -1,0 +1,293 @@
+<!-- Script to run button Party Adult Experiment Condition 1 -->
+
+  <!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-video-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+    <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("user_jEDpD93CbRcynEjnqSfaA");
+      })();
+    </script>
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body></body>
+
+  <script>
+       var imagePreDataSum = [
+     {Pregreen1:'Image_sum/Pre1g1.png', Pregreen2:'Image_sum/Pre1g2.png', Preyellow:'Image_sum/Pre1o.png', data: {test_part:'test', correct_response:'j', image_index: 96}},
+     {Pregreen1:'Image_sum/Pre2g1.png', Pregreen2:'Image_sum/Pre2g2.png', Preyellow:'Image_sum/Pre2o.png', data: {test_part:'test', correct_response:'f', image_index: 97}},    
+     {Pregreen1:'Image_sum/Pre3g1.png', Pregreen2:'Image_sum/Pre3g2.png', Preyellow:'Image_sum/Pre3o.png', data: {test_part:'test', correct_response:'j', image_index: 98}},
+     {Pregreen1:'Image_sum/Pre4g1.png', Pregreen2:'Image_sum/Pre4g2.png', Preyellow:'Image_sum/Pre4o.png', data: {test_part:'test', correct_response:'f', image_index: 99}},
+   ]
+   var imageDataSum = [
+      {green1: 'Image_sum/S1g1.png', green2: 'Image_sum/S1g2.png', yellow: 'Image_sum/S1o.png', data: {test_part: 'test', correct_response: 'j', image_index: 0}}, 
+      {green1: 'Image_sum/S2g1.png', green2: 'Image_sum/S2g2.png', yellow: 'Image_sum/S2o.png', data: {test_part: 'test', correct_response: 'f', image_index: 1}},
+      {green1: 'Image_sum/S3g1.png', green2: 'Image_sum/S3g2.png', yellow: 'Image_sum/S3o.png', data: {test_part: 'test', correct_response: 'j', image_index: 2}}, 
+      {green1: 'Image_sum/S4g1.png', green2: 'Image_sum/S4g2.png', yellow: 'Image_sum/S4o.png', data: {test_part: 'test', correct_response: 'f', image_index: 3}},
+      {green1: 'Image_sum/S5g1.png', green2: 'Image_sum/S5g2.png', yellow: 'Image_sum/S5o.png', data: {test_part: 'test', correct_response: 'j', image_index: 4}}, 
+      {green1: 'Image_sum/S6g1.png', green2: 'Image_sum/S6g2.png', yellow: 'Image_sum/S6o.png', data: {test_part: 'test', correct_response: 'f', image_index: 5}},
+      {green1: 'Image_sum/S7g1.png', green2: 'Image_sum/S7g2.png', yellow: 'Image_sum/S7o.png', data: {test_part: 'test', correct_response: 'j', image_index: 6}}, 
+      {green1: 'Image_sum/S8g1.png', green2: 'Image_sum/S8g2.png', yellow: 'Image_sum/S8o.png', data: {test_part: 'test', correct_response: 'f', image_index: 7}},
+      {green1: 'Image_sum/S9g1.png', green2: 'Image_sum/S9g2.png', yellow: 'Image_sum/S9o.png', data: {test_part: 'test', correct_response: 'j', image_index: 8}}, 
+      {green1: 'Image_sum/S10g1.png', green2: 'Image_sum/S10g2.png', yellow: 'Image_sum/S10o.png', data: {test_part: 'test', correct_response: 'f', image_index: 9}},
+      {green1: 'Image_sum/S11g1.png', green2: 'Image_sum/S11g2.png', yellow: 'Image_sum/S11o.png', data: {test_part: 'test', correct_response: 'j', image_index: 10}}, 
+      {green1: 'Image_sum/S12g1.png', green2: 'Image_sum/S12g2.png', yellow: 'Image_sum/S12o.png', data: {test_part: 'test', correct_response: 'f', image_index: 11}},
+      {green1: 'Image_sum/S13g1.png', green2: 'Image_sum/S13g2.png', yellow: 'Image_sum/S13o.png', data: {test_part: 'test', correct_response: 'j', image_index: 12}}, 
+      {green1: 'Image_sum/S14g1.png', green2: 'Image_sum/S14g2.png', yellow: 'Image_sum/S14o.png', data: {test_part: 'test', correct_response: 'f', image_index: 13}},
+      {green1: 'Image_sum/S15g1.png', green2: 'Image_sum/S15g2.png', yellow: 'Image_sum/S15o.png', data: {test_part: 'test', correct_response: 'j', image_index: 14}}, 
+      {green1: 'Image_sum/S16g1.png', green2: 'Image_sum/S16g2.png', yellow: 'Image_sum/S16o.png', data: {test_part: 'test', correct_response: 'f', image_index: 15}},
+      {green1: 'Image_sum/S17g1.png', green2: 'Image_sum/S17g2.png', yellow: 'Image_sum/S17o.png', data: {test_part: 'test', correct_response: 'j', image_index: 16}}, 
+      {green1: 'Image_sum/S18g1.png', green2: 'Image_sum/S18g2.png', yellow: 'Image_sum/S18o.png', data: {test_part: 'test', correct_response: 'f', image_index: 17}},
+      {green1: 'Image_sum/S19g1.png', green2: 'Image_sum/S19g2.png', yellow: 'Image_sum/S19o.png', data: {test_part: 'test', correct_response: 'j', image_index: 18}}, 
+      {green1: 'Image_sum/S20g1.png', green2: 'Image_sum/S20g2.png', yellow: 'Image_sum/S20o.png', data: {test_part: 'test', correct_response: 'f', image_index: 19}},
+      {green1: 'Image_sum/S21g1.png', green2: 'Image_sum/S21g2.png', yellow: 'Image_sum/S21o.png', data: {test_part: 'test', correct_response: 'j', image_index: 20}}, 
+      {green1: 'Image_sum/S22g1.png', green2: 'Image_sum/S22g2.png', yellow: 'Image_sum/S22o.png', data: {test_part: 'test', correct_response: 'f', image_index: 21}},
+      {green1: 'Image_sum/S23g1.png', green2: 'Image_sum/S23g2.png', yellow: 'Image_sum/S23o.png', data: {test_part: 'test', correct_response: 'f', image_index: 22}}, 
+      {green1: 'Image_sum/S24g1.png', green2: 'Image_sum/S24g2.png', yellow: 'Image_sum/S24o.png', data: {test_part: 'test', correct_response: 'f', image_index: 23}},
+      {green1: 'Image_sum/S25g1.png', green2: 'Image_sum/S25g2.png', yellow: 'Image_sum/S25o.png', data: {test_part: 'test', correct_response: 'j', image_index: 24}}, 
+      {green1: 'Image_sum/S26g1.png', green2: 'Image_sum/S26g2.png', yellow: 'Image_sum/S26o.png', data: {test_part: 'test', correct_response: 'f', image_index: 25}},
+      {green1: 'Image_sum/S27g1.png', green2: 'Image_sum/S27g2.png', yellow: 'Image_sum/S27o.png', data: {test_part: 'test', correct_response: 'j', image_index: 26}}, 
+      {green1: 'Image_sum/S28g1.png', green2: 'Image_sum/S28g2.png', yellow: 'Image_sum/S28o.png', data: {test_part: 'test', correct_response: 'f', image_index: 27}},
+      {green1: 'Image_sum/S29g1.png', green2: 'Image_sum/S29g2.png', yellow: 'Image_sum/S29o.png', data: {test_part: 'test', correct_response: 'f', image_index: 28}}, 
+      {green1: 'Image_sum/S30g1.png', green2: 'Image_sum/S30g2.png', yellow: 'Image_sum/S30o.png', data: {test_part: 'test', correct_response: 'j', image_index: 29}},
+      
+      {green1: 'Image_sum/S31g1.png', green2: 'Image_sum/S31g2.png', yellow: 'Image_sum/S31o.png', data: {test_part: 'test', correct_response: 'f', image_index: 30}}, 
+      {green1: 'Image_sum/S32g1.png', green2: 'Image_sum/S32g2.png', yellow: 'Image_sum/S32o.png', data: {test_part: 'test', correct_response: 'j', image_index: 31}},
+      {green1: 'Image_sum/S33g1.png', green2: 'Image_sum/S33g2.png', yellow: 'Image_sum/S33o.png', data: {test_part: 'test', correct_response: 'f', image_index: 32}}, 
+      {green1: 'Image_sum/S34g1.png', green2: 'Image_sum/S34g2.png', yellow: 'Image_sum/S34o.png', data: {test_part: 'test', correct_response: 'j', image_index: 33}},
+      {green1: 'Image_sum/S35g1.png', green2: 'Image_sum/S35g2.png', yellow: 'Image_sum/S35o.png', data: {test_part: 'test', correct_response: 'f', image_index: 34}}, 
+      {green1: 'Image_sum/S36g1.png', green2: 'Image_sum/S36g2.png', yellow: 'Image_sum/S36o.png', data: {test_part: 'test', correct_response: 'j', image_index: 35}},
+      {green1: 'Image_sum/S37g1.png', green2: 'Image_sum/S37g2.png', yellow: 'Image_sum/S37o.png', data: {test_part: 'test', correct_response: 'f', image_index: 36}}, 
+      {green1: 'Image_sum/S38g1.png', green2: 'Image_sum/S38g2.png', yellow: 'Image_sum/S38o.png', data: {test_part: 'test', correct_response: 'j', image_index: 37}},
+      {green1: 'Image_sum/S39g1.png', green2: 'Image_sum/S39g2.png', yellow: 'Image_sum/S39o.png', data: {test_part: 'test', correct_response: 'f', image_index: 38}}, 
+      {green1: 'Image_sum/S40g1.png', green2: 'Image_sum/S40g2.png', yellow: 'Image_sum/S40o.png', data: {test_part: 'test', correct_response: 'j', image_index: 39}},
+      {green1: 'Image_sum/S41g1.png', green2: 'Image_sum/S41g2.png', yellow: 'Image_sum/S41o.png', data: {test_part: 'test', correct_response: 'f', image_index: 40}}, 
+      {green1: 'Image_sum/S42g1.png', green2: 'Image_sum/S42g2.png', yellow: 'Image_sum/S42o.png', data: {test_part: 'test', correct_response: 'j', image_index: 41}},
+      {green1: 'Image_sum/S43g1.png', green2: 'Image_sum/S43g2.png', yellow: 'Image_sum/S43o.png', data: {test_part: 'test', correct_response: 'f', image_index: 42}}, 
+      {green1: 'Image_sum/S44g1.png', green2: 'Image_sum/S44g2.png', yellow: 'Image_sum/S44o.png', data: {test_part: 'test', correct_response: 'j', image_index: 43}},
+      {green1: 'Image_sum/S45g1.png', green2: 'Image_sum/S45g2.png', yellow: 'Image_sum/S45o.png', data: {test_part: 'test', correct_response: 'f', image_index: 44}}, 
+      {green1: 'Image_sum/S46g1.png', green2: 'Image_sum/S46g2.png', yellow: 'Image_sum/S46o.png', data: {test_part: 'test', correct_response: 'j', image_index: 45}},
+      {green1: 'Image_sum/S47g1.png', green2: 'Image_sum/S47g2.png', yellow: 'Image_sum/S47o.png', data: {test_part: 'test', correct_response: 'f', image_index: 46}}, 
+      {green1: 'Image_sum/S48g1.png', green2: 'Image_sum/S48g2.png', yellow: 'Image_sum/S48o.png', data: {test_part: 'test', correct_response: 'j', image_index: 47}},
+      {green1: 'Image_sum/S49g1.png', green2: 'Image_sum/S49g2.png', yellow: 'Image_sum/S49o.png', data: {test_part: 'test', correct_response: 'f', image_index: 48}}, 
+      {green1: 'Image_sum/S50g1.png', green2: 'Image_sum/S50g2.png', yellow: 'Image_sum/S50o.png', data: {test_part: 'test', correct_response: 'j', image_index: 49}},
+      {green1: 'Image_sum/S51g1.png', green2: 'Image_sum/S51g2.png', yellow: 'Image_sum/S51o.png', data: {test_part: 'test', correct_response: 'f', image_index: 50}}, 
+      {green1: 'Image_sum/S52g1.png', green2: 'Image_sum/S52g2.png', yellow: 'Image_sum/S52o.png', data: {test_part: 'test', correct_response: 'j', image_index: 51}},
+      {green1: 'Image_sum/S53g1.png', green2: 'Image_sum/S53g2.png', yellow: 'Image_sum/S53o.png', data: {test_part: 'test', correct_response: 'j', image_index: 52}}, 
+      {green1: 'Image_sum/S54g1.png', green2: 'Image_sum/S54g2.png', yellow: 'Image_sum/S54o.png', data: {test_part: 'test', correct_response: 'j', image_index: 53}},
+      {green1: 'Image_sum/S55g1.png', green2: 'Image_sum/S55g2.png', yellow: 'Image_sum/S55o.png', data: {test_part: 'test', correct_response: 'f', image_index: 54}}, 
+      {green1: 'Image_sum/S56g1.png', green2: 'Image_sum/S56g2.png', yellow: 'Image_sum/S56o.png', data: {test_part: 'test', correct_response: 'j', image_index: 55}},
+      {green1: 'Image_sum/S57g1.png', green2: 'Image_sum/S57g2.png', yellow: 'Image_sum/S57o.png', data: {test_part: 'test', correct_response: 'f', image_index: 56}}, 
+      {green1: 'Image_sum/S58g1.png', green2: 'Image_sum/S58g2.png', yellow: 'Image_sum/S58o.png', data: {test_part: 'test', correct_response: 'j', image_index: 57}},
+      {green1: 'Image_sum/S59g1.png', green2: 'Image_sum/S59g2.png', yellow: 'Image_sum/S59o.png', data: {test_part: 'test', correct_response: 'j', image_index: 58}}, 
+      {green1: 'Image_sum/S60g1.png', green2: 'Image_sum/S60g2.png', yellow: 'Image_sum/S60o.png', data: {test_part: 'test', correct_response: 'f', image_index: 59}},
+      
+      ];
+   var timeline = [];
+   var customerEmailAddress = null;
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "欢迎来到实验。请按任意键继续。"
+    };
+    timeline.push(welcome);
+
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+
+    var practiceSum = {
+      type: "html-keyboard-response",
+      stimulus: '<p><strong>请仔细阅读以下指导语</strong></p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>首先，你将在屏幕的左侧，连续看到两组数量不等的<span style="color:green">绿色</span>圆点，每一次仅有一组绿色圆点出现，每一组都会短暂出现之后消失。</p>'+
+      '<p>随后，你会在屏幕的右侧，仅看到一组数量不定的<span style="color:orange">橙色</span>圆点，短暂地出现后消失。</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>你需要判断屏幕哪一种颜色的圆点数量更多，是绿色圆点（两组绿色圆点的数量<em>总和</em>）还是橙色圆点。</p>" +
+      '<p>如果你认为<span style="color:green">绿色的</span>圆点更多，请在键盘上按下<strong>“F”</strong>键。</p>' +
+      '<p>如果你认为<span style="color:orange">橙色的</span>圆点更多，请在键盘上按下<strong>“J”</strong>键。</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>你需要根据目测去估算两边圆点的数量，但不能去一个个数出每一组圆点的数量。</p>' +
+      '<p>根据你的大致估测，请以最快的速度给出最准确的答案。</p>'+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>当你通过按下“F”或“J”键做出选择之后，系统将自动进入下一轮测试。</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>首先，我们先进行练习，帮助你熟悉这个实验的操作。</p>",
+      
+      post_trial_gap: 1000
+    };
+    timeline.push(practiceSum);
+
+    imagePreDataSum.map(image => {
+      var Pregreen1 = {
+        obj_type: 'image',
+        file: image.Pregreen1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.75,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 1500
+      }
+      var Pregreen2 = {
+        obj_type: 'image',
+        file: image.Pregreen2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.25,
+        show_start_time: 2300, // from the trial start (ms)
+        show_end_time: 3300
+      }
+      var Preyellow = {
+          obj_type: 'image',
+          file: image.Preyellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 4300, // from the trial start (ms)
+          show_end_time: 5300
+      }
+
+      var Pretrial = {
+          type: 'psychophysics',
+          stimuli: [Pregreen1, Pregreen2, Preyellow],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 4301,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+      timeline.push(Pretrial);
+    })
+
+    var Predebrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>你的正确率是"+accuracy+"%。</p>"+
+        "<p>你的平均反应时是"+rt+"毫秒。</p>"+
+        '<p>现在，我们将正式开始这个实验。</p>' +
+        '<p>再次提醒：如果你认为两组<strong><span style="color:green">绿色</span></strong>圆点的<em>总和</em>更多，请在键盘上按下<strong>“F”</strong>键；</p>' +
+        '<p>如果你认为<strong><span style="color:orange">橙色</span></strong>圆点的数量更多，请在键盘上按下<strong>“J”</strong>键。</p>' +
+        '<p>当你做出选择之后，系统将自动进入下一轮。请集中注意力，认真观察屏幕两侧圆点的数量。</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>这一部分的实验大约进行5-7分钟。</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>当你准备好后，请按下键盘任意键，开始实验。</p>',
+
+      }
+    };
+    timeline.push(Predebrief_block);
+
+    jsPsych.randomization.shuffle(imageDataSum).map(image => {
+      var green1 = {
+        obj_type: 'image',
+        file: image.green1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.75,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 900
+      }
+      var green2 = {
+        obj_type: 'image',
+        file: image.green2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.25,
+        show_start_time: 1700, // from the trial start (ms)
+        show_end_time: 2100
+      }
+
+      var yellow = {
+          obj_type: 'image',
+          file: image.yellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 2600, // from the trial start (ms)
+          show_end_time: 3000
+      }
+
+      var trial = {
+          type: 'psychophysics',
+          stimuli: [green1, green2, yellow],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 2601,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+      timeline.push(trial);
+    })
+
+      /* Get participate email address */
+  var participateEmailAddress = {
+      type: "survey-text",
+      questions: [
+        {prompt: "<p>Please enter your email address here.</p>" +
+        "<p>For Psych101 class students to seek for research credit,</p>" +
+        "<p>please instead enter your Initials and today's date (e.g., LG 09/07/2020) below.</p>", rows: 3, columns: 50}
+      ],
+      on_finish: function(data) {customerEmailAddress = data.responses;}
+    };
+    timeline.push(participateEmailAddress);
+
+ timeline.push({
+  type: 'fullscreen',
+  fullscreen_mode: false
+});
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var params = {
+          name: ['Summation', customerEmailAddress],
+          message_html: jsPsych.data.get().filter({test_part: 'test'}).json()
+        };
+
+        // Send data to gmail
+        emailjs.send('chen_gmail', 'button_party_adult_experiment_one', params)
+          .then(function(response) {
+            console.log('SUCCESS', response.status, response.text);
+          }, function (error) {
+            console.log('Error', error);
+          });
+
+        return "<p>Great job! Your are all done.</p>"+
+        "<p>Thank you for particiapting the experiment!</p>"+
+        "<p>Press any key to complete the experiment.</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+    jsPsych.init({
+        timeline: timeline,
+        //on_finish: function(){jsPsych.data.displayData();}
+    });
+  </script>
+</html>

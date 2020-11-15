@@ -1,0 +1,297 @@
+<!-- Script to run button Party Adult Experiment Condition 1 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-video-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+    <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("user_jEDpD93CbRcynEjnqSfaA");
+      })();
+    </script>
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body></body>
+
+  <script>
+ var imagePreDataDiff = [
+     {Pregreen2:'Image_diff/Pre1g1.png', Pregreen1:'Image_diff/Pre1g2.png', Preyellow:'Image_diff/Pre1o.png', data: {test_part:'test', correct_response:'j', image_index: 96}},
+     {Pregreen2:'Image_diff/Pre2g1.png', Pregreen1:'Image_diff/Pre2g2.png', Preyellow:'Image_diff/Pre2o.png', data: {test_part:'test', correct_response:'f', image_index: 97}},    
+     {Pregreen2:'Image_diff/Pre3g1.png', Pregreen1:'Image_diff/Pre3g2.png', Preyellow:'Image_diff/Pre3o.png', data: {test_part:'test', correct_response:'j', image_index: 98}},
+     {Pregreen2:'Image_diff/Pre4g1.png', Pregreen1:'Image_diff/Pre4g2.png', Preyellow:'Image_diff/Pre4o.png', data: {test_part:'test', correct_response:'f', image_index: 99}},
+   ]
+   var imageDataDiff = [
+      {green2: 'Image_diff/D1g1.png', green1: 'Image_diff/D1g2.png', yellow: 'Image_diff/D1o.png', data: {test_part: 'test', correct_response: 'j', image_index: 0}}, 
+      {green2: 'Image_diff/D2g1.png', green1: 'Image_diff/D2g2.png', yellow: 'Image_diff/D2o.png', data: {test_part: 'test', correct_response: 'f', image_index: 1}},
+      {green2: 'Image_diff/D3g1.png', green1: 'Image_diff/D3g2.png', yellow: 'Image_diff/D3o.png', data: {test_part: 'test', correct_response: 'j', image_index: 2}}, 
+      {green2: 'Image_diff/D4g1.png', green1: 'Image_diff/D4g2.png', yellow: 'Image_diff/D4o.png', data: {test_part: 'test', correct_response: 'f', image_index: 3}},
+      {green2: 'Image_diff/D5g1.png', green1: 'Image_diff/D5g2.png', yellow: 'Image_diff/D5o.png', data: {test_part: 'test', correct_response: 'j', image_index: 4}}, 
+      {green2: 'Image_diff/D6g1.png', green1: 'Image_diff/D6g2.png', yellow: 'Image_diff/D6o.png', data: {test_part: 'test', correct_response: 'f', image_index: 5}},
+      {green2: 'Image_diff/D7g1.png', green1: 'Image_diff/D7g2.png', yellow: 'Image_diff/D7o.png', data: {test_part: 'test', correct_response: 'j', image_index: 6}}, 
+      {green2: 'Image_diff/D8g1.png', green1: 'Image_diff/D8g2.png', yellow: 'Image_diff/D8o.png', data: {test_part: 'test', correct_response: 'f', image_index: 7}},
+      {green2: 'Image_diff/D9g1.png', green1: 'Image_diff/D9g2.png', yellow: 'Image_diff/D9o.png', data: {test_part: 'test', correct_response: 'j', image_index: 8}}, 
+      {green2: 'Image_diff/D10g1.png', green1: 'Image_diff/D10g2.png', yellow: 'Image_diff/D10o.png', data: {test_part: 'test', correct_response: 'f', image_index: 9}},
+      {green2: 'Image_diff/D11g1.png', green1: 'Image_diff/D11g2.png', yellow: 'Image_diff/D11o.png', data: {test_part: 'test', correct_response: 'j', image_index: 10}}, 
+      {green2: 'Image_diff/D12g1.png', green1: 'Image_diff/D12g2.png', yellow: 'Image_diff/D12o.png', data: {test_part: 'test', correct_response: 'f', image_index: 11}},
+      {green2: 'Image_diff/D13g1.png', green1: 'Image_diff/D13g2.png', yellow: 'Image_diff/D13o.png', data: {test_part: 'test', correct_response: 'j', image_index: 12}}, 
+      {green2: 'Image_diff/D14g1.png', green1: 'Image_diff/D14g2.png', yellow: 'Image_diff/D14o.png', data: {test_part: 'test', correct_response: 'f', image_index: 13}},
+      {green2: 'Image_diff/D15g1.png', green1: 'Image_diff/D15g2.png', yellow: 'Image_diff/D15o.png', data: {test_part: 'test', correct_response: 'j', image_index: 14}}, 
+      {green2: 'Image_diff/D16g1.png', green1: 'Image_diff/D16g2.png', yellow: 'Image_diff/D16o.png', data: {test_part: 'test', correct_response: 'f', image_index: 15}},
+      {green2: 'Image_diff/D17g1.png', green1: 'Image_diff/D17g2.png', yellow: 'Image_diff/D17o.png', data: {test_part: 'test', correct_response: 'j', image_index: 16}}, 
+      {green2: 'Image_diff/D18g1.png', green1: 'Image_diff/D18g2.png', yellow: 'Image_diff/D18o.png', data: {test_part: 'test', correct_response: 'f', image_index: 17}},
+      {green2: 'Image_diff/D19g1.png', green1: 'Image_diff/D19g2.png', yellow: 'Image_diff/D19o.png', data: {test_part: 'test', correct_response: 'j', image_index: 18}}, 
+      {green2: 'Image_diff/D20g1.png', green1: 'Image_diff/D20g2.png', yellow: 'Image_diff/D20o.png', data: {test_part: 'test', correct_response: 'f', image_index: 19}},
+      {green2: 'Image_diff/D21g1.png', green1: 'Image_diff/D21g2.png', yellow: 'Image_diff/D21o.png', data: {test_part: 'test', correct_response: 'j', image_index: 20}}, 
+      {green2: 'Image_diff/D22g1.png', green1: 'Image_diff/D22g2.png', yellow: 'Image_diff/D22o.png', data: {test_part: 'test', correct_response: 'f', image_index: 21}},
+      {green2: 'Image_diff/D23g1.png', green1: 'Image_diff/D23g2.png', yellow: 'Image_diff/D23o.png', data: {test_part: 'test', correct_response: 'f', image_index: 22}}, 
+      {green2: 'Image_diff/D24g1.png', green1: 'Image_diff/D24g2.png', yellow: 'Image_diff/D24o.png', data: {test_part: 'test', correct_response: 'f', image_index: 23}},
+      {green2: 'Image_diff/D25g1.png', green1: 'Image_diff/D25g2.png', yellow: 'Image_diff/D25o.png', data: {test_part: 'test', correct_response: 'j', image_index: 24}}, 
+      {green2: 'Image_diff/D26g1.png', green1: 'Image_diff/D26g2.png', yellow: 'Image_diff/D26o.png', data: {test_part: 'test', correct_response: 'f', image_index: 25}},
+      {green2: 'Image_diff/D27g1.png', green1: 'Image_diff/D27g2.png', yellow: 'Image_diff/D27o.png', data: {test_part: 'test', correct_response: 'j', image_index: 26}}, 
+      {green2: 'Image_diff/D28g1.png', green1: 'Image_diff/D28g2.png', yellow: 'Image_diff/D28o.png', data: {test_part: 'test', correct_response: 'f', image_index: 27}},
+      {green2: 'Image_diff/D29g1.png', green1: 'Image_diff/D29g2.png', yellow: 'Image_diff/D29o.png', data: {test_part: 'test', correct_response: 'f', image_index: 28}}, 
+      {green2: 'Image_diff/D30g1.png', green1: 'Image_diff/D30g2.png', yellow: 'Image_diff/D30o.png', data: {test_part: 'test', correct_response: 'j', image_index: 29}},
+      
+      {green2: 'Image_diff/D31g1.png', green1: 'Image_diff/D31g2.png', yellow: 'Image_diff/D31o.png', data: {test_part: 'test', correct_response: 'f', image_index: 30}}, 
+      {green2: 'Image_diff/D32g1.png', green1: 'Image_diff/D32g2.png', yellow: 'Image_diff/D32o.png', data: {test_part: 'test', correct_response: 'j', image_index: 31}},
+      {green2: 'Image_diff/D33g1.png', green1: 'Image_diff/D33g2.png', yellow: 'Image_diff/D33o.png', data: {test_part: 'test', correct_response: 'f', image_index: 32}}, 
+      {green2: 'Image_diff/D34g1.png', green1: 'Image_diff/D34g2.png', yellow: 'Image_diff/D34o.png', data: {test_part: 'test', correct_response: 'j', image_index: 33}},
+      {green2: 'Image_diff/D35g1.png', green1: 'Image_diff/D35g2.png', yellow: 'Image_diff/D35o.png', data: {test_part: 'test', correct_response: 'f', image_index: 34}}, 
+      {green2: 'Image_diff/D36g1.png', green1: 'Image_diff/D36g2.png', yellow: 'Image_diff/D36o.png', data: {test_part: 'test', correct_response: 'j', image_index: 35}},
+      {green2: 'Image_diff/D37g1.png', green1: 'Image_diff/D37g2.png', yellow: 'Image_diff/D37o.png', data: {test_part: 'test', correct_response: 'f', image_index: 36}}, 
+      {green2: 'Image_diff/D38g1.png', green1: 'Image_diff/D38g2.png', yellow: 'Image_diff/D38o.png', data: {test_part: 'test', correct_response: 'j', image_index: 37}},
+      {green2: 'Image_diff/D39g1.png', green1: 'Image_diff/D39g2.png', yellow: 'Image_diff/D39o.png', data: {test_part: 'test', correct_response: 'f', image_index: 38}}, 
+      {green2: 'Image_diff/D40g1.png', green1: 'Image_diff/D40g2.png', yellow: 'Image_diff/D40o.png', data: {test_part: 'test', correct_response: 'j', image_index: 39}},
+      {green2: 'Image_diff/D41g1.png', green1: 'Image_diff/D41g2.png', yellow: 'Image_diff/D41o.png', data: {test_part: 'test', correct_response: 'f', image_index: 40}}, 
+      {green2: 'Image_diff/D42g1.png', green1: 'Image_diff/D42g2.png', yellow: 'Image_diff/D42o.png', data: {test_part: 'test', correct_response: 'j', image_index: 41}},
+      {green2: 'Image_diff/D43g1.png', green1: 'Image_diff/D43g2.png', yellow: 'Image_diff/D43o.png', data: {test_part: 'test', correct_response: 'f', image_index: 42}}, 
+      {green2: 'Image_diff/D44g1.png', green1: 'Image_diff/D44g2.png', yellow: 'Image_diff/D44o.png', data: {test_part: 'test', correct_response: 'j', image_index: 43}},
+      {green2: 'Image_diff/D45g1.png', green1: 'Image_diff/D45g2.png', yellow: 'Image_diff/D45o.png', data: {test_part: 'test', correct_response: 'f', image_index: 44}}, 
+      {green2: 'Image_diff/D46g1.png', green1: 'Image_diff/D46g2.png', yellow: 'Image_diff/D46o.png', data: {test_part: 'test', correct_response: 'j', image_index: 45}},
+      {green2: 'Image_diff/D47g1.png', green1: 'Image_diff/D47g2.png', yellow: 'Image_diff/D47o.png', data: {test_part: 'test', correct_response: 'f', image_index: 46}}, 
+      {green2: 'Image_diff/D48g1.png', green1: 'Image_diff/D48g2.png', yellow: 'Image_diff/D48o.png', data: {test_part: 'test', correct_response: 'j', image_index: 47}},
+      {green2: 'Image_diff/D49g1.png', green1: 'Image_diff/D49g2.png', yellow: 'Image_diff/D49o.png', data: {test_part: 'test', correct_response: 'f', image_index: 48}}, 
+      {green2: 'Image_diff/D50g1.png', green1: 'Image_diff/D50g2.png', yellow: 'Image_diff/D50o.png', data: {test_part: 'test', correct_response: 'j', image_index: 49}},
+      {green2: 'Image_diff/D51g1.png', green1: 'Image_diff/D51g2.png', yellow: 'Image_diff/D51o.png', data: {test_part: 'test', correct_response: 'f', image_index: 50}}, 
+      {green2: 'Image_diff/D52g1.png', green1: 'Image_diff/D52g2.png', yellow: 'Image_diff/D52o.png', data: {test_part: 'test', correct_response: 'j', image_index: 51}},
+      {green2: 'Image_diff/D53g1.png', green1: 'Image_diff/D53g2.png', yellow: 'Image_diff/D53o.png', data: {test_part: 'test', correct_response: 'j', image_index: 52}}, 
+      {green2: 'Image_diff/D54g1.png', green1: 'Image_diff/D54g2.png', yellow: 'Image_diff/D54o.png', data: {test_part: 'test', correct_response: 'j', image_index: 53}},
+      {green2: 'Image_diff/D55g1.png', green1: 'Image_diff/D55g2.png', yellow: 'Image_diff/D55o.png', data: {test_part: 'test', correct_response: 'f', image_index: 54}}, 
+      {green2: 'Image_diff/D56g1.png', green1: 'Image_diff/D56g2.png', yellow: 'Image_diff/D56o.png', data: {test_part: 'test', correct_response: 'j', image_index: 55}},
+      {green2: 'Image_diff/D57g1.png', green1: 'Image_diff/D57g2.png', yellow: 'Image_diff/D57o.png', data: {test_part: 'test', correct_response: 'f', image_index: 56}}, 
+      {green2: 'Image_diff/D58g1.png', green1: 'Image_diff/D58g2.png', yellow: 'Image_diff/D58o.png', data: {test_part: 'test', correct_response: 'j', image_index: 57}},
+      {green2: 'Image_diff/D59g1.png', green1: 'Image_diff/D59g2.png', yellow: 'Image_diff/D59o.png', data: {test_part: 'test', correct_response: 'j', image_index: 58}}, 
+      {green2: 'Image_diff/D60g1.png', green1: 'Image_diff/D60g2.png', yellow: 'Image_diff/D60o.png', data: {test_part: 'test', correct_response: 'f', image_index: 59}},
+      ];
+
+    var timeline = [];
+    var customerEmailAddress = null;
+
+    /* define welcome message trial */
+    var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "欢迎来到实验。请按任意键继续。"
+    };
+    timeline.push(welcome);
+
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+
+    var practice = {
+      type: "html-keyboard-response",
+      stimulus: '<p><strong>请仔细阅读以下指导语</strong></p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>首先，你将在屏幕的左侧，连续看到两组数量不等的<span style="color:green">绿色</span>圆点，每一次仅有一组绿色圆点出现，每一组都会短暂出现之后消失。</p>'+
+      '<p>随后，你会在屏幕的右侧，仅看到一组数量不定的<span style="color:orange">橙色</span>圆点，短暂地出现后消失。</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>注意：这一次，你需要将你看到的<strong>第一组绿色圆点减去第二组绿色圆点的数量</strong>。</p>" +
+      '<p>你需要用两组绿色圆点的数量之<strong>差</strong>，与橙色圆点的数量进行比较，以此判断哪一种颜色的圆点数量更多。</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>如果你认为<span style="color:green">绿色的</span>圆点之<strong>差</strong>更多，请在键盘上按下<strong>“F”</strong>键。</p>' +
+      '<p>如果你认为<span style="color:orange">橙色的</span>圆点更多，请在键盘上按下<strong>“J”</strong>键。</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>你需要根据目测去估算两边圆点的数量，但不能去一个个数出每一组圆点的数量。</p>' +
+      '<p>根据你的大致估测，请以最快的速度给出最准确的答案。</p>'+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>当你通过按下“F”或“J”键做出选择之后，系统将自动进入下一轮测试。</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>首先，我们先进行练习，帮助你熟悉这个实验的操作。</p>",
+      
+      post_trial_gap: 1000
+    };
+    timeline.push(practice);
+
+    imagePreDataDiff.map(image => {
+      var Pregreen1 = {
+        obj_type: 'image',
+        file: image.Pregreen1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.75,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 1500
+      }
+      var Pregreen2 = {
+        obj_type: 'image',
+        file: image.Pregreen2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.25,
+        show_start_time: 2300, // from the trial start (ms)
+        show_end_time: 3300
+      }
+      var Preyellow = {
+          obj_type: 'image',
+          file: image.Preyellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 4300, // from the trial start (ms)
+          show_end_time: 5300
+      }
+
+      var Pretrial = {
+          type: 'psychophysics',
+          stimuli: [Pregreen1, Pregreen2, Preyellow],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 4301,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+      timeline.push(Pretrial);
+    })
+
+    var Predebrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var trials = jsPsych.data.get().filter({test_part: 'test'});
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>你的正确率是"+accuracy+"%。</p>"+
+        "<p>你的平均反应时是"+rt+"毫秒。</p>"+
+        '<p>现在，我们将正式开始这个实验。</p>' +
+        '<p>再次提醒：你需要估测两组绿色圆点的数量之差，并且用这个差值与橙色圆点的数量进行比较。</p>'+
+        '<p>如果你认为两组<strong><span style="color:green">绿色</span></strong>圆点之<strong>差</strong>更多，请在键盘上按下<strong>“F”</strong>键；</p>' +
+        '<p>如果你认为<strong><span style="color:orange">橙色</span></strong>圆点的数量更多，请在键盘上按下<strong>“J”</strong>键。</p>' +
+        '<p>当你做出选择之后，系统将自动进入下一轮。请集中注意力，认真观察屏幕两侧圆点的数量。</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>这一部分的实验大约进行5-7分钟。</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>当你准备好后，请按下键盘任意键，开始实验。</p>';
+
+      }
+    };
+    timeline.push(Predebrief_block);
+
+    jsPsych.randomization.shuffle(imageDataDiff).map(image => {
+      var green1 = {
+        obj_type: 'image',
+        file: image.green1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.75,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 900
+      }
+      var green2 = {
+        obj_type: 'image',
+        file: image.green2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.25,
+        show_start_time: 1700, // from the trial start (ms)
+        show_end_time: 2100
+      }
+
+      var yellow = {
+          obj_type: 'image',
+          file: image.yellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 2600, // from the trial start (ms)
+          show_end_time: 3000
+      }
+
+      var trial = {
+          type: 'psychophysics',
+          stimuli: [green1, green2, yellow],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 2601,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+      timeline.push(trial);
+    })
+
+     /* Get participate email address */
+     var participateEmailAddress = {
+      type: "survey-text",
+      questions: [
+        {prompt: "<p>Please enter your email address here.</p>" +
+        "<p>For Psych101 class students to seek for research credit,</p>" +
+        "<p>please instead enter your Initials and today's date (e.g., LG 09/07/2020) below.</p>", rows: 3, columns: 50}
+      ],
+      on_finish: function(data) {customerEmailAddress = data.responses;}
+    };
+    timeline.push(participateEmailAddress);
+
+ timeline.push({
+  type: 'fullscreen',
+  fullscreen_mode: false
+});
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var params = {
+          name: ['Computation', customerEmailAddress],
+          message_html: jsPsych.data.get().filter({test_part: 'test'}).json()
+        };
+
+        // Send data to gmail
+        emailjs.send('chen_gmail', 'button_party_adult_experiment_one', params)
+          .then(function(response) {
+            console.log('SUCCESS', response.status, response.text);
+          }, function (error) {
+            console.log('Error', error);
+          });
+
+        return "<p>Great job! Your are all done.</p>"+
+        "<p>Thank you for particiapting the experiment!</p>"+
+        "<p>Press any key to complete the experiment.</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+    jsPsych.init({
+        timeline: timeline,
+        //on_finish: function(){jsPsych.data.displayData();}
+    });
+  </script>
+</html>
