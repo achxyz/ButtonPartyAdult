@@ -1,0 +1,647 @@
+<!-- Script to run button Party Adult Experiment Condition 1 -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+    <script src="jspsych-6.1.0/jspsych.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-video-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-survey-text.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+    <script src="jspsych-psychophysics-0.4/jspsych-psychophysics.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function(){
+          emailjs.init("user_jEDpD93CbRcynEjnqSfaA");
+      })();
+    </script>
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+  </head>
+  <body></body>
+
+  <script>
+    var imagePreData = [
+    {Pregreen1:'Stimuli/greendots_v1/g8v1.png', Pregreen2:'Stimuli/greendots_v2/g20v2.png', Preyellow:'Stimuli/Orangedots_v/Orange16v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'j', image_index: 96, test_set: 'BasicPractice'}},
+     {Pregreen1:'Stimuli/greendots_v1/g8v1.png', Pregreen2:'Stimuli/greendots_v2/g20v2.png', Preyellow:'Stimuli/Orangedots_v/Orange10v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'f', image_index: 97,test_set: 'BasicPractice'}},    
+     {Pregreen1:'Stimuli/greendots_v1/g30v1.png', Pregreen2:'Stimuli/greendots_v2/g18v2.png', Preyellow:'Stimuli/Orangedots_v/Orange36v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'j', image_index: 98,test_set: 'BasicPractice'}},
+     {Pregreen1:'Stimuli/greendots_v1/g30v1.png', Pregreen2:'Stimuli/greendots_v2/g18v2.png', Preyellow:'Stimuli/Orangedots_v/Orange15v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'f', image_index: 99,test_set: 'BasicPractice'}}, 
+     ]
+
+    var imagePreDataSum = [
+    {Pregreen1:'Stimuli/greendots_a1/g5a1.png', Pregreen2:'Stimuli/greendots_a2/g4a2.png', Preyellow:'Stimuli/Orangedots_a/Orange18a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'j', image_index: 96, test_set: 'SumPractice'}},
+     {Pregreen1:'Stimuli/greendots_a1/g8a1.png', Pregreen2:'Stimuli/greendots_a2/g12a2.png', Preyellow:'Stimuli/Orangedots_a/Orange10a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'f', image_index: 97, test_set: 'SumPractice'}},    
+     {Pregreen1:'Stimuli/greendots_a1/g12a1.png', Pregreen2:'Stimuli/greendots_a2/g6a2.png', Preyellow:'Stimuli/Orangedots_a/Orange36a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'j', image_index: 98, test_set: 'SumPractice'}},
+     {Pregreen1:'Stimuli/greendots_a1/g14a1.png', Pregreen2:'Stimuli/greendots_a2/g16a2.png', Preyellow:'Stimuli/Orangedots_a/Orange15a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part:'test', correct_response:'f', image_index: 99, test_set: 'SumPractice'}},
+    ]
+
+    var imageDataSet1 = [
+      {green1: 'Stimuli/greendots_v1/g12v1.png', green2: 'Stimuli/greendots_v2/g18v2.png', yellow: 'Stimuli/Orangedots_v/Orange16v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 0, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g13v2.png', green1: 'Stimuli/greendots_v1/g20v1.png', yellow: 'Stimuli/Orangedots_v/Orange15v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 1,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g27v1.png', green2: 'Stimuli/greendots_v2/g40v2.png', yellow: 'Stimuli/Orangedots_v/Orange36v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 2,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g24v2.png', green1: 'Stimuli/greendots_v1/g36v1.png', yellow: 'Stimuli/Orangedots_v/Orange27v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 3, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g18v1.png', green2: 'Stimuli/greendots_v2/g27v2.png', yellow: 'Stimuli/Orangedots_v/Orange24v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 4,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g28v2.png', green1: 'Stimuli/greendots_v1/g40v1.png', yellow: 'Stimuli/Orangedots_v/Orange30v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 5,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g28v1.png', green2: 'Stimuli/greendots_v2/g42v2.png', yellow: 'Stimuli/Orangedots_v/Orange35v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 6,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g7v2.png', green1: 'Stimuli/greendots_v1/g10v1.png', yellow: 'Stimuli/Orangedots_v/Orange8v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 7,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g20v1.png', green2: 'Stimuli/greendots_v2/g30v2.png', yellow: 'Stimuli/Orangedots_v/Orange25v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 8,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g10v2.png', green1: 'Stimuli/greendots_v1/g15v1.png', yellow: 'Stimuli/Orangedots_v/Orange12v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 9,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g24v1.png', green2: 'Stimuli/greendots_v2/g36v2.png', yellow: 'Stimuli/Orangedots_v/Orange30v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 10,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g27v2.png', green1: 'Stimuli/greendots_v1/g40v1.png', yellow: 'Stimuli/Orangedots_v/Orange32v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 11,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g25v1.png', green2: 'Stimuli/greendots_v2/g36v2.png', yellow: 'Stimuli/Orangedots_v/Orange30v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 12,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g12v2.png', green1: 'Stimuli/greendots_v1/g18v1.png', yellow: 'Stimuli/Orangedots_v/Orange15v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 13,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g35v1.png', green2: 'Stimuli/greendots_v2/g52v2.png', yellow: 'Stimuli/Orangedots_v/Orange42v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 14,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g16v2.png', green1: 'Stimuli/greendots_v1/g24v1.png', yellow: 'Stimuli/Orangedots_v/Orange20v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 15,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g30v1.png', green2: 'Stimuli/greendots_v2/g41v2.png', yellow: 'Stimuli/Orangedots_v/Orange36v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 16,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g24v2.png', green1: 'Stimuli/greendots_v1/g36v1.png', yellow: 'Stimuli/Orangedots_v/Orange30v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 17,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g12v1.png', green2: 'Stimuli/greendots_v2/g18v2.png', yellow: 'Stimuli/Orangedots_v/Orange14v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 18,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g14v2.png', green1: 'Stimuli/greendots_v1/g21v1.png', yellow: 'Stimuli/Orangedots_v/Orange18v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 19,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g24v1.png', green2: 'Stimuli/greendots_v2/g36v2.png', yellow: 'Stimuli/Orangedots_v/Orange28v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 20,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g24v2.png', green1: 'Stimuli/greendots_v1/g35v1.png', yellow: 'Stimuli/Orangedots_v/Orange30v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 21,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g42v1.png', green2: 'Stimuli/greendots_v2/g28v2.png', yellow: 'Stimuli/Orangedots_v/Orange36v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 22, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g18v2.png', green1: 'Stimuli/greendots_v1/g28v1.png', yellow: 'Stimuli/Orangedots_v/Orange24v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 23,test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g14v1.png', green2: 'Stimuli/greendots_v2/g21v2.png', yellow: 'Stimuli/Orangedots_v/Orange16v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 24, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g16v2.png', green1: 'Stimuli/greendots_v1/g24v1.png', yellow: 'Stimuli/Orangedots_v/Orange21v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 25, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g28v1.png', green2: 'Stimuli/greendots_v2/g42v2.png', yellow: 'Stimuli/Orangedots_v/Orange32v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 26, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g27v2.png', green1: 'Stimuli/greendots_v1/g40v1.png', yellow: 'Stimuli/Orangedots_v/Orange35v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 27, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g48v1.png', green2: 'Stimuli/greendots_v2/g32v2.png', yellow: 'Stimuli/Orangedots_v/Orange42v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 28, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g54v2.png', green1: 'Stimuli/greendots_v1/g35v1.png', yellow: 'Stimuli/Orangedots_v/Orange40v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 29, test_set: 'Basic'}},
+
+      {green1: 'Stimuli/greendots_a1/g5a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange16a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 0,test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g8a1.png', green2: 'Stimuli/greendots_a2/g12a2.png', yellow: 'Stimuli/Orangedots_a/Orange15a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 1, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g12a1.png', green2: 'Stimuli/greendots_a2/g15a2.png', yellow: 'Stimuli/Orangedots_a/Orange36a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 2, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g14a1.png', green2: 'Stimuli/greendots_a2/g22a2.png', yellow: 'Stimuli/Orangedots_a/Orange27a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 3, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g8a1.png', green2: 'Stimuli/greendots_a2/g10a2.png', yellow: 'Stimuli/Orangedots_a/Orange24a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 4, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g28a1.png', green2: 'Stimuli/greendots_a2/g12a2.png', yellow: 'Stimuli/Orangedots_a/Orange30a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 5, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g13a1.png', green2: 'Stimuli/greendots_a2/g15a2.png', yellow: 'Stimuli/Orangedots_a/Orange35a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 6, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g6a1.png', green2: 'Stimuli/greendots_a2/g4a2.png', yellow: 'Stimuli/Orangedots_a/Orange8a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 7, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g13a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange25a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 8, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g7a1.png', green2: 'Stimuli/greendots_a2/g8a2.png', yellow: 'Stimuli/Orangedots_a/Orange12a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 9, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g16a1.png', green2: 'Stimuli/greendots_a2/g8a2.png', yellow: 'Stimuli/Orangedots_a/Orange30a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 10, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g14a1.png', green2: 'Stimuli/greendots_a2/g26a2.png', yellow: 'Stimuli/Orangedots_a/Orange32a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 11, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g16a1.png', green2: 'Stimuli/greendots_a2/g9a2.png', yellow: 'Stimuli/Orangedots_a/Orange30a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 12, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g8a1.png', green2: 'Stimuli/greendots_a2/g10a2.png', yellow: 'Stimuli/Orangedots_a/Orange15a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 13, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g23a1.png', green2: 'Stimuli/greendots_a2/g12a2.png', yellow: 'Stimuli/Orangedots_a/Orange42a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 14, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g9a1.png', green2: 'Stimuli/greendots_a2/g15a2.png', yellow: 'Stimuli/Orangedots_a/Orange20a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 15, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g18a1.png', green2: 'Stimuli/greendots_a2/g12a2.png', yellow: 'Stimuli/Orangedots_a/Orange36a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 16, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g16a1.png', green2: 'Stimuli/greendots_a2/g20a2.png', yellow: 'Stimuli/Orangedots_a/Orange30a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 17, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g5a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange14a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 18, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g11a1.png', green2: 'Stimuli/greendots_a2/g10a2.png', yellow: 'Stimuli/Orangedots_a/Orange18a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 19, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g13a1.png', green2: 'Stimuli/greendots_a2/g11a2.png', yellow: 'Stimuli/Orangedots_a/Orange28a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 20, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g15a1.png', green2: 'Stimuli/greendots_a2/g20a2.png', yellow: 'Stimuli/Orangedots_a/Orange30a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 21, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g20a1.png', green2: 'Stimuli/greendots_a2/g22a2.png', yellow: 'Stimuli/Orangedots_a/Orange36a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 22, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g13a1.png', green2: 'Stimuli/greendots_a2/g15a2.png', yellow: 'Stimuli/Orangedots_a/Orange24a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 23, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g5a1.png', green2: 'Stimuli/greendots_a2/g9a2.png', yellow: 'Stimuli/Orangedots_a/Orange16a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 24, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g17a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange21a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 25, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g11a1.png', green2: 'Stimuli/greendots_a2/g17a2.png', yellow: 'Stimuli/Orangedots_a/Orange32a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 26, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g16a1.png', green2: 'Stimuli/greendots_a2/g24a2.png', yellow: 'Stimuli/Orangedots_a/Orange35a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 27, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g18a1.png', green2: 'Stimuli/greendots_a2/g30a2.png', yellow: 'Stimuli/Orangedots_a/Orange42a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'f', image_index: 28, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g11a1.png', green2: 'Stimuli/greendots_a2/g24a2.png', yellow: 'Stimuli/Orangedots_a/Orange40a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5, data: {test_part: 'test', correct_response: 'j', image_index: 29, test_set: 'Sum'}},
+
+    ];
+
+    var imageDataSet2 = [
+      {green1: 'Stimuli/greendots_v1/g16v1.png', green2: 'Stimuli/greendots_v2/g24v2.png', yellow: 'Stimuli/Orangedots_v/Orange12v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 30,test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g10v2.png', green1: 'Stimuli/greendots_a1/g15a1.png', yellow: 'Stimuli/Orangedots_v/Orange20v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 31, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g36v1.png', green2: 'Stimuli/greendots_v2/g54v2.png', yellow: 'Stimuli/Orangedots_v/Orange27v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 32, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g18v2.png', green1: 'Stimuli/greendots_v1/g27v1.png', yellow: 'Stimuli/Orangedots_v/Orange36v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 33, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g24v1.png', green2: 'Stimuli/greendots_v2/g36v2.png', yellow: 'Stimuli/Orangedots_v/Orange18v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 34, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g20v2.png', green1: 'Stimuli/greendots_v1/g30v1.png', yellow: 'Stimuli/Orangedots_v/Orange40v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 35, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g35v1.png', green2: 'Stimuli/greendots_v2/g54v2.png', yellow: 'Stimuli/Orangedots_v/Orange28v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 36, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g6v2.png', green1: 'Stimuli/greendots_v1/g8v1.png', yellow: 'Stimuli/Orangedots_v/Orange10v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 37, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g25v1.png', green2: 'Stimuli/greendots_v2/g39v2.png', yellow: 'Stimuli/Orangedots_v/Orange20v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 38, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g8v2.png', green1: 'Stimuli/greendots_v1/g12v1.png', yellow: 'Stimuli/Orangedots_v/Orange15v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 39, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g30v1.png', green2: 'Stimuli/greendots_v2/g46v2.png', yellow: 'Stimuli/Orangedots_v/Orange24v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 40, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g21v2.png', green1: 'Stimuli/greendots_v1/g32v1.png', yellow: 'Stimuli/Orangedots_v/Orange40v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 41, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g30v1.png', green2: 'Stimuli/greendots_v2/g46v2.png', yellow: 'Stimuli/Orangedots_v/Orange25v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 42, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g10v2.png', green1: 'Stimuli/greendots_v1/g15v1.png', yellow: 'Stimuli/Orangedots_v/Orange18v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 43, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g42v1.png', green2: 'Stimuli/greendots_v2/g62v2.png', yellow: 'Stimuli/Orangedots_v/Orange35v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 44, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g13v2.png', green1: 'Stimuli/greendots_v1/g20v1.png', yellow: 'Stimuli/Orangedots_v/Orange24v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 45, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g36v1.png', green2: 'Stimuli/greendots_v2/g54v2.png', yellow: 'Stimuli/Orangedots_v/Orange30v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 46, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g20v2.png', green1: 'Stimuli/greendots_v1/g30v1.png', yellow: 'Stimuli/Orangedots_v/Orange36v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 47, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g14v1.png', green2: 'Stimuli/greendots_v2/g21v2.png', yellow: 'Stimuli/Orangedots_v/Orange12v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 48, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g12v2.png', green1: 'Stimuli/greendots_v1/g18v1.png', yellow: 'Stimuli/Orangedots_v/Orange21v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 49, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g28v1.png', green2: 'Stimuli/greendots_v2/g42v2.png', yellow: 'Stimuli/Orangedots_v/Orange24v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 50, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g20v2.png', green1: 'Stimuli/greendots_v1/g30v1.png', yellow: 'Stimuli/Orangedots_v/Orange35v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 51, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g36v1.png', green2: 'Stimuli/greendots_v2/g24v2.png', yellow: 'Stimuli/Orangedots_v/Orange42v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 52, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g16v2.png', green1: 'Stimuli/greendots_v1/g24v1.png', yellow: 'Stimuli/Orangedots_v/Orange28v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 53, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g16v1.png', green2: 'Stimuli/greendots_v2/g24v2.png', yellow: 'Stimuli/Orangedots_v/Orange14v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 54, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g14v2.png', green1: 'Stimuli/greendots_v1/g21v1.png', yellow: 'Stimuli/Orangedots_v/Orange24v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 55, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g32v1.png', green2: 'Stimuli/greendots_v2/g48v2.png', yellow: 'Stimuli/Orangedots_v/Orange28v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 56, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g24v2.png', green1: 'Stimuli/greendots_v1/g35v1.png', yellow: 'Stimuli/Orangedots_v/Orange40v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 57, test_set: 'Basic'}},
+      {green1: 'Stimuli/greendots_v1/g42v1.png', green2: 'Stimuli/greendots_v2/g28v2.png', yellow: 'Stimuli/Orangedots_v/Orange48v.png', mark: 'Stimuli/1.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 58, test_set: 'Basic'}},
+      {green2: 'Stimuli/greendots_v2/g62v2.png', green1: 'Stimuli/greendots_v1/g40v1.png', yellow: 'Stimuli/Orangedots_v/Orange35v.png', mark: 'Stimuli/2.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 59, test_set: 'Basic'}},
+
+      {green1: 'Stimuli/greendots_a1/g9a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange12a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 30,test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g8a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange20a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 31, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g20a1.png', green2: 'Stimuli/greendots_a2/g16a2.png', yellow: 'Stimuli/Orangedots_a/Orange27a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 32, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g14a1.png', green2: 'Stimuli/greendots_a2/g13a2.png', yellow: 'Stimuli/Orangedots_a/Orange36a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 33, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g8a1.png', green2: 'Stimuli/greendots_a2/g16a2.png', yellow: 'Stimuli/Orangedots_a/Orange18a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 34, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g18a1.png', green2: 'Stimuli/greendots_a2/g12a2.png', yellow: 'Stimuli/Orangedots_a/Orange40a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 35, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g18a1.png', green2: 'Stimuli/greendots_a2/g17a2.png', yellow: 'Stimuli/Orangedots_a/Orange28a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 36, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g4a1.png', green2: 'Stimuli/greendots_a2/g4a2.png', yellow: 'Stimuli/Orangedots_a/Orange10a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 37, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g13a1.png', green2: 'Stimuli/greendots_a2/g12a2.png', yellow: 'Stimuli/Orangedots_a/Orange20a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 38, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g4a1.png', green2: 'Stimuli/greendots_a2/g8a2.png', yellow: 'Stimuli/Orangedots_a/Orange15a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 39, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g16a1.png', green2: 'Stimuli/greendots_a2/g14a2.png', yellow: 'Stimuli/Orangedots_a/Orange24a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 40, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g18a1.png', green2: 'Stimuli/greendots_a2/g14a2.png', yellow: 'Stimuli/Orangedots_a/Orange40a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 41, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g16a1.png', green2: 'Stimuli/greendots_a2/g14a2.png', yellow: 'Stimuli/Orangedots_a/Orange25a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 42, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g8a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange18a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 43, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g23a1.png', green2: 'Stimuli/greendots_a2/g19a2.png', yellow: 'Stimuli/Orangedots_a/Orange35a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 44, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g9a1.png', green2: 'Stimuli/greendots_a2/g11a2.png', yellow: 'Stimuli/Orangedots_a/Orange24a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 45, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g24a1.png', green2: 'Stimuli/greendots_a2/g12a2.png', yellow: 'Stimuli/Orangedots_a/Orange30a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 46, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g10a1.png', green2: 'Stimuli/greendots_a2/g20a2.png', yellow: 'Stimuli/Orangedots_a/Orange36a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 47, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g6a1.png', green2: 'Stimuli/greendots_a2/g8a2.png', yellow: 'Stimuli/Orangedots_a/Orange12a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 48, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g11a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange21a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 49, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g17a1.png', green2: 'Stimuli/greendots_a2/g11a2.png', yellow: 'Stimuli/Orangedots_a/Orange24a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 50, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g12a1.png', green2: 'Stimuli/greendots_a2/g18a2.png', yellow: 'Stimuli/Orangedots_a/Orange35a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 51, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g20a1.png', green2: 'Stimuli/greendots_a2/g16a2.png', yellow: 'Stimuli/Orangedots_a/Orange42a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 52, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g13a1.png', green2: 'Stimuli/greendots_a2/g11a2.png', yellow: 'Stimuli/Orangedots_a/Orange28a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 53, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g7a1.png', green2: 'Stimuli/greendots_a2/g9a2.png', yellow: 'Stimuli/Orangedots_a/Orange14a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 54, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g14a1.png', green2: 'Stimuli/greendots_a2/g7a2.png', yellow: 'Stimuli/Orangedots_a/Orange24a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 55, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g13a1.png', green2: 'Stimuli/greendots_a2/g19a2.png', yellow: 'Stimuli/Orangedots_a/Orange28a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 56, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g20a1.png', green2: 'Stimuli/greendots_a2/g15a2.png', yellow: 'Stimuli/Orangedots_a/Orange40a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 57, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g20a1.png', green2: 'Stimuli/greendots_a2/g22a2.png', yellow: 'Stimuli/Orangedots_a/Orange48a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'j', image_index: 58, test_set: 'Sum'}},
+      {green1: 'Stimuli/greendots_a1/g16a1.png', green2: 'Stimuli/greendots_a2/g24a2.png', yellow: 'Stimuli/Orangedots_a/Orange35a.png', mark: 'Stimuli/+.png', markStartX: parseInt(window.innerWidth) * 0.5, markStartY: parseInt(window.innerHeight) * 0.5,data: {test_part: 'test', correct_response: 'f', image_index: 59, test_set: 'Sum'}},
+    ]
+
+
+    var timeline = [];
+    var customerEmailAddress = null;
+
+   /* define welcome message trial */
+   var welcome = {
+      type: "html-keyboard-response",
+      stimulus: "Welcome to the experiment. Please press any key to continue."
+    };
+    timeline.push(welcome);
+
+  timeline.push({
+    type: 'fullscreen',
+    fullscreen_mode: true
+  });
+
+    /* define instructions trial */
+    var instructionBasic = {
+      type: "html-keyboard-response",
+      stimulus: '<p><strong>Please read the following instructions carefully</strong></p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>Before each trial, you will see a '*' in the cener of the screen.</p>" +
+      "<p>Please fixate on the plus sign when it appears.</p>" +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>In the experiment, you will compare which set has more dots, <strong><span style="color:green">the green set </span></strong>or<strong><span style="color:orange"> the orange set</span></strong>.</p>'+
+      '<p>Each set will appear very shortly, do not count the dots individually.</p>'+
+      '<p>Instead, estimate approximately which set has more dots.</p>'+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>In each trial, you will see two sets of green dots, sequentially appear on the left side of the screen.</p>" +
+      "<p>The first set first appears on the left side, disappears, then the second set appears on the same location on the left side, then disappers.</p>"+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>When the second set of green dots disappear, you will see a number showing either '1' or '2' in the same place of the green sets.</p>"+
+      "<p>You will then see a set of orange dots appear briefly in the right side of the screen.</p>"+
+      "<p>Your job is to compare the set of green dots that <strong>indicated by the number </strong>(either the <strong>1st</strong> set or the <strong>2nd</strong> set that appeared)</p>"+
+      "<p>and <strong>the set of orange dots</strong></p>"+
+      "<p>which set has more dots</p>"+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>If you think <span style="color:green">the number indicated green set</span> has more dots, press <strong>“F”</strong> key.</p>' +
+      '<p>If you think <span style="color:orange">the orange set</span> has more dots, press <strong>“J”</strong> key.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>Note that each set will appear <strong>briefly</strong>, please keep focused on screen. </p>' +
+      '<p>You need to estimate the numerosity of the set approximately, please do not count them individually.</p>' +
+      '<p>Based on your estimation, please give the  answer accurately as soon as possible.</p>'+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>When you press "F" or "J" key, the trial will automatically proceeds to the next one. </p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>First, let's practice.</p>",
+      post_trial_gap: 1000
+    };
+    timeline.push(instructionBasic);
+
+    var preTestCollectionBasic = [];
+
+    imagePreData.map(image => {
+      var Pregreen1 = {
+        obj_type: 'image',
+        file: image.Pregreen1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 1500
+      }
+      var Pregreen2 = {
+        obj_type: 'image',
+        file: image.Pregreen2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 2300, // from the trial start (ms)
+        show_end_time: 3300
+      }
+      var mark = {
+          obj_type: 'image',
+          file: image.mark,
+          startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 3800, // from the trial start (ms)
+          show_end_time: 4800
+      }
+      var Preyellow = {
+          obj_type: 'image',
+          file: image.Preyellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 5300, // from the trial start (ms)
+          show_end_time: 6300
+      }
+
+
+      var Pretrial = {
+          type: 'psychophysics',
+          stimuli: [Pregreen1, Pregreen2, Preyellow, mark],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 5301,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+
+      var fixation = {
+        type: 'html-keyboard-response',
+        stimulus: '<div style="font-size:60px;">*</div>',
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 500,
+      }
+
+      var Pretest_procedure = {
+        timeline: [fixation, Pretrial],
+        timeline_variables: image
+      }
+      // timeline.push(Pretest_procedure);
+      preTestCollectionBasic.push(Pretest_procedure);
+    });
+
+    var Predebrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+        // The reason to get last 4 trials was because there are 4 testing trials in practice round
+        var trials = jsPsych.data.get().filter({test_part: 'test'}).last(1);
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>Your accuracy is "+accuracy+"%.</p>"+
+        "<p>Your averaged reaction time is "+rt+"ms.</p>"+
+        "<p>If you want to <strong>practice again</strong>, press <strong>R</strong> key to start</p>"+ 
+        "<p>If you want to <strong>continue</strong>, press <strong>any key other than R</strong>.</p>";
+      }
+    }
+
+    preTestCollectionBasic.push(Predebrief_block);
+
+    var loop_node = {
+        timeline: preTestCollectionBasic,
+        loop_function: function(data){
+          // debugger;
+          if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('r') == data.values()[data.values().length - 1].key_press){
+            return true;
+          } else {
+            return false;
+          }
+        }
+      };
+    timeline.push(loop_node);
+  
+    var instructionSum = {
+      type: "html-keyboard-response",
+      stimulus: '<p><strong>Please read the following instructions carefully.</strong></p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>First, you will see two sets of <span style="color:green">green dots</span> appear on the left side sequentially, each will disappear after the other.</p>'+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>When the second set of green dots disappears, you will see <strong>'+'</strong> appear at the same location of the green dots.</p>"+
+      "<p>You will then see a set of orange dots appears on the right side of the screen.</p>"+
+      "<p>You need to judge which color has more dots, the <em>summed total of two green sets</em> or <em>the orange set</em>.</p>" +
+      '<p>If you think <span style="color:green">the summed total of two green sets</span> has more dots, press <strong>“F”</strong> key.</p>' +
+      '<p>If you think <span style="color:orange">the orange set</span> has more dots, press <strong>“J”</strong> key.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>You need to estimate the numerosity of each color, do not count them individually.</p>' +
+      '<p>Based on your estimation, give your answer accurately as soon as possible.</p>'+
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      '<p>When you press "F" or "J" key, the trial will automatically proceed to the next one.</p>' +
+      "<div style = 'width: 700px;'>" +
+      "</div>" +
+      "<p>Ok, first let's practice.</p>",
+      
+      post_trial_gap: 1000
+    };
+    timeline.push(instructionSum);
+
+    var preTestCollectionSum = [];
+
+    imagePreDataSum.map(image => {
+      var Pregreen1 = {
+        obj_type: 'image',
+        file: image.Pregreen1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 1500
+      }
+      var Pregreen2 = {
+        obj_type: 'image',
+        file: image.Pregreen2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 2300, // from the trial start (ms)
+        show_end_time: 3300
+      }
+      var mark = {
+          obj_type: 'image',
+          file: image.mark,
+          startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 3800, // from the trial start (ms)
+          show_end_time: 4800
+      }
+      var Preyellow = {
+          obj_type: 'image',
+          file: image.Preyellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 5300, // from the trial start (ms)
+          show_end_time: 6300
+      }
+
+      var Pretrial = {
+          type: 'psychophysics',
+          stimuli: [Pregreen1, Pregreen2, mark, Preyellow],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'f' or 'j' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 5301,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+      var fixation = {
+        type: 'html-keyboard-response',
+        stimulus: '<div style="font-size:60px;">*</div>',
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 500,
+      }
+
+      var Pretest_procedure = {
+        timeline: [fixation, Pretrial],
+        timeline_variables: image
+      }
+      //timeline.push(Pretrial);
+      preTestCollectionSum.push(Pretest_procedure);
+    })
+
+    var Predebrief_block_sum = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+        // The reason to get last 4 trials was because there are 4 testing trials in practice round
+        var trials = jsPsych.data.get().filter({test_part: 'test'}).last(1);
+        var correct_trials = trials.filter({correct: true});
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+        var rt = Math.round(correct_trials.select('rt').mean());
+
+        return "<p>Your accuracy is"+accuracy+"%.</p>"+
+        "<p>Your averaged reaction time is "+rt+"ms.</p>"+
+        "<p>If you want to <strong>practice again</strong>, press <strong>R</strong> key to re-start.</p>"+ 
+        "<p>If you want to <strong>continue</strong>, press <strong>any key other than R</strong>.</p>";
+      }
+    }
+
+    preTestCollectionSum.push(Predebrief_block_sum);
+
+    var loop_node_sum = {
+        timeline: preTestCollectionSum,
+        loop_function: function(data){
+          // debugger;
+          if(jsPsych.pluginAPI.convertKeyCharacterToKeyCode('r') == data.values()[data.values().length - 1].key_press){
+            return true;
+          } else {
+            return false;
+          }
+        }
+      };
+    timeline.push(loop_node_sum);
+
+    var intro = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>Now let us start the real experiment.</p>' +
+        '<p>This time, you will see two sets of green dots appear sequentially on the left side of the screen, one after the other</p>' +
+        '<p>You will then see either <strong>a number (1 or 2)</strong>, or a <strong>"+"</strong> appeared at the same location of the green sets .</p>' +
+        '<p>If you see a number, please only compare <strong>the green set that indicated by the number</strong> with the following orange set.</p>' +
+        '<p>If you see a '+', please compare <strong>the summed total of the two green sets</strong> with the following orange set.</p>' +
+        '<p>Reminder: if you think <strong><span style="color:green">the green set(s)</span></strong> has more dots, press<strong>“F”</strong> key;</p>' +
+        '<p>If you think <strong><span style="color:orange">the orange set</span></strong> has more dots, press <strong>“J”</strong> key.</p>' +
+        '<p>When you press "F" or "J" key, the trial will automatically proceed to the next one. Please keep focused.</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>This part will take 7-10 minutes.</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>When you are ready, press any key to continue.</p>',
+      }
+    timeline.push(intro);
+
+    jsPsych.randomization.shuffle(imageDataSet1).map(image => {
+      var green1 = {
+        obj_type: 'image',
+        file: image.green1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 900
+      }
+      var green2 = {
+        obj_type: 'image',
+        file: image.green2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 1700, // from the trial start (ms)
+        show_end_time: 2100
+      }
+      var mark = {
+          obj_type: 'image',
+          file: image.mark,
+          startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 2900, // from the trial start (ms)
+          show_end_time: 3200
+      }
+      var yellow = {
+          obj_type: 'image',
+          file: image.yellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 4000, // from the trial start (ms)
+          show_end_time: 4400
+      }
+
+      var trial = {
+          type: 'psychophysics',
+          stimuli: [green1, green2, yellow, mark],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'y' or 'n' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 4005,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+
+      var fixation = {
+        type: 'html-keyboard-response',
+        stimulus: '<div style="font-size:60px;">*</div>',
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 500,
+      }
+
+      var test_procedure = {
+        timeline: [fixation, trial],
+        timeline_variables: image
+      }
+
+      timeline.push(test_procedure);
+    })
+
+    var intro2 = {
+        type: 'html-keyboard-response',
+        stimulus: '<p>You have completed half of this part, feel free to take a break.</p>' +
+        '<p>Reminder: if you think <strong><span style="color:green">the green set(s)</span></strong> has more dots, press <strong>“F”</strong> key;</p>' +
+        '<p>If you think <strong><span style="color:orange">the orange set</span></strong >has more dots, press <strong>“J”</strong> key.</p>' +
+        '<p>When you press "F" or "J" key, the trial will automatically proceed to the next one. Please keep focused.</p>' +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        "<div style = 'width: 700px;'>" +
+        "</div>" +
+        '<p>When you are ready, press any key to continue.</p>',
+      }
+    timeline.push(intro2);
+
+    jsPsych.randomization.shuffle(imageDataSet2).map(image => {
+      var green1 = {
+        obj_type: 'image',
+        file: image.green1, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 500, // from the trial start (ms)
+        show_end_time: 900
+      }
+      var green2 = {
+        obj_type: 'image',
+        file: image.green2, 
+        startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+        startY: parseInt(window.innerHeight) * 0.5,
+        show_start_time: 1700, // from the trial start (ms)
+        show_end_time: 2100
+      }
+      var mark = {
+          obj_type: 'image',
+          file: image.mark,
+          startX: parseInt(window.innerWidth) * 0.25, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 2900, // from the trial start (ms)
+          show_end_time: 3200
+      }
+      var yellow = {
+          obj_type: 'image',
+          file: image.yellow,
+          startX: parseInt(window.innerWidth) * 0.75, // location in the canvas
+          startY: parseInt(window.innerHeight) * 0.5,
+          show_start_time: 4000, // from the trial start (ms)
+          show_end_time: 4400
+      }
+
+      var trial = {
+          type: 'psychophysics',
+          stimuli: [green1, green2, yellow, mark],
+          choices: ['f', 'j'], // The participant can respond to the stimuli using the 'y' or 'n' key.
+          background_color: '#FFFFFF', // The HEX color means green.
+          data: image.data,
+          response_start_time: 4005,
+          on_finish: function(data) {
+            data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+          },
+      }
+
+      var fixation = {
+        type: 'html-keyboard-response',
+        stimulus: '<div style="font-size:60px;">*</div>',
+        choices: jsPsych.NO_KEYS,
+        trial_duration: 500,
+      }
+
+      var test_procedure = {
+        timeline: [fixation, trial],
+        timeline_variables: image
+      }
+
+      timeline.push(test_procedure);
+    })
+
+    /* Get participate email address */
+    var participateEmailAddress = {
+      type: "survey-text",
+      questions: [
+        {prompt: "<p>You are done for this part!</p>" +
+        "<p>Please enter your name initials (Lastname Firstname)_Gender(M/F)_SID</p>" +
+        "<p>e.g., LTW_M_1234567</p>", rows: 2, columns: 50}
+      ],
+      on_finish: function(data) {customerEmailAddress = data.responses;}
+    };
+    timeline.push(participateEmailAddress);
+
+    timeline.push({
+      type: 'fullscreen',
+      fullscreen_mode: false
+    });
+
+    var debrief_block = {
+      type: "html-keyboard-response",
+      stimulus: function() {
+
+        var params = {
+          name: ["SameSpace_BaseAdd_EN400", customerEmailAddress],
+          message_html: jsPsych.data.get().filter({test_part:'test'}).json()
+        };
+
+        // Send data to gmail
+        emailjs.send('chen_gmail', 'button_party_adult_experiment_one', params)
+          .then(function(response) {
+            console.log('SUCCESS', response.status, response.text);
+          }, function (error) {
+            console.log('Error', error);
+          });
+
+        return "<p>Great job! Your are all done.</p>"+
+        "<p>Thank you for particiapting the experiment!</p>"+
+        "<p>Press any key to complete the experiment.</p>";
+
+      }
+    };
+    timeline.push(debrief_block);
+
+    jsPsych.init({
+        timeline: timeline,
+        //on_finish: function(){jsPsych.data.displayData();}
+    });
+  </script>
+</html>
